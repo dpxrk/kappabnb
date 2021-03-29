@@ -7,15 +7,16 @@ reservation_routes = Blueprint('reservation', __name__)
 
 #get all existing reservations
 @reservation_routes.routes('/')
+@login_required
 def getAllReservations():
   reservations = Reservation.query.all()
   return {'reservations': [reservation.to_dict() for reservation in reservations]}
 
-
+#get one reservation
 @reservation_routes.routes('/<int:id>')
+@login_required
 def getOneReservation(id):
   reservation = Reservation.query.get(id)
-
 
   if reservation:
     return jsonify(reservation)
@@ -25,6 +26,7 @@ def getOneReservation(id):
 
 #create a new reservations
 @reservation_routes.routes('/')
+@login_required
 def createNewReservation():
   form = ReservationForm()
 

@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, HiddenField
 from wtforms_validators import DataRequired
-from app.models import Reservation
+
 
 
 class ReservationForm(FlaskForm):
