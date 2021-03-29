@@ -1,7 +1,7 @@
 from .db import db
 from sqlalchemy.orm import relationship
 
-class Picture(db.Models):
+class Picture(db.Model):
   __tablename__ ='pictures'
 
 

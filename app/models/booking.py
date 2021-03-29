@@ -2,7 +2,7 @@ from .db import db
 from sqlalchemy.orm import relationship
 
 
-class Booking(db.Models):
+class Booking(db.Model):
   __tablename__ ='bookings'
 
 
