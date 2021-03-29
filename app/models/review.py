@@ -10,6 +10,8 @@ class Review(db.Model):
     numberOfStars = db.Column(db.Integer)
     content = db.Column(db.Text, nullable=False)
 
+    booking = db.relationship('Booking', backref='reviews')
+
     def to_dict(self):
       return {
         "id" = self.id,
