@@ -26,6 +26,6 @@ class Booking(db.Model):
       'userId': self.userId,
       'price': float(self.price),
       'description': self.description,
-      'address' : self.address
+      'address' : self.address,
       'pictures': [picture.photoURL for picture in self.pictures]
     }

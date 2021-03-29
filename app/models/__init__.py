@@ -4,3 +4,5 @@ from .booking import Booking
 from .picture import Picture
 from .reservation import Reservation
 from .review import Review
+from .state import State
+from .comment import Comment

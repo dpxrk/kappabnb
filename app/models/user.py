@@ -32,7 +32,7 @@ class User(db.Model, UserMixin):
     return {
       "id": self.id,
       "fullName": self.username,
-      "email": self.email
-      "profileImage": self.profileImage
+      "email": self.email,
+      "profileImage": self.profileImage,
       "Host": self.host
     }
