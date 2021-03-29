@@ -6,10 +6,13 @@ class User(db.Model, UserMixin):
   __tablename__ = 'users'
 
   id = db.Column(db.Integer, primary_key = True)
-  username = db.Column(db.String(40), nullable = False, unique = True)
+  fullName = db.Column(db.String(40), nullable = False)
   email = db.Column(db.String(255), nullable = False, unique = True)
+  host = db.Column(db.Boolean, default=False)
+  profileImage = db.Column(db.Text)
   hashed_password = db.Column(db.String(255), nullable = False)
-
+  createdAt  = db.Column(db.DateTime,  default=db.func.current_timestamp())
+  updatedAt = db.Column(db.DateTime,  default=db.func.current_timestamp(),onupdate=db.func.current_timestamp())
 
   @property
   def password(self):
@@ -28,6 +31,8 @@ class User(db.Model, UserMixin):
   def to_dict(self):
     return {
       "id": self.id,
-      "username": self.username,
+      "fullName": self.username,
       "email": self.email
+      "profileImage": self.profileImage
+      "Host": self.host
     }
