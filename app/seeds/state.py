@@ -6,6 +6,7 @@ def seed_states():
    "Alabama",
    'Alaska',
    'Arizona',
+   'Arkansas',
    'California',
    'Colorado',
    'Connecticut',
@@ -54,10 +55,11 @@ def seed_states():
    'Wyoming'
   ]
 
-  capital = [
+  capitals = [
     'Montgomery',
     'Juneau',
-    'Arkansas',
+    'Phoenix',
+    'Little Rock'
     'Sacramento',
     'Denver',
     'Hartford',
@@ -107,4 +109,20 @@ def seed_states():
   ]
 
 
-  
+  count = 0
+  while count < 50:
+    new_state = State(
+      stateName= stateNames[count],
+      capital= capitals[count]
+    )
+    count += 1
+    db.session.add(new_state)
+
+
+  db.session.commit()
+
+
+
+def undo_states():
+  db.session.execute('TRUNCATE states;')
+  db.session.commit()

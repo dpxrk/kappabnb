@@ -21,13 +21,19 @@ class Booking(db.Model):
   state = db.relationship('State', backref='states')
   user = db.relationship('User', backref='bookings')
 
+
+
   def to_dict(self):
+    state = self.state.stateName
+    userFullName = self.user.fullName
+
     return {
       'id': self.id,
       'title': self.title,
-      'userId': self.userId,
+      'userId': userFullName
       'price': float(self.price),
       'description': self.description,
       'address' : self.address,
       'pictures': [picture.photoURL for picture in self.pictures]
+      'state' : state
     }
