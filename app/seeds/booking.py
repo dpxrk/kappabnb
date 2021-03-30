@@ -26,6 +26,27 @@ def seed_bookings():
     userId=(random.randrange(1,10)),
     price=(random.randrange(50,200)),
     description="Want to visit Sacramento without breaking the bank? We have exactly what you're looking for. Our charming bungalow comes with 4 bedrooms, hot tub, indoor fireplace, free coffee and tea, breakfast, and a TV.",
-    address='500 Woodlane St'
+    address='1700 W Washington St'
     stateId=3
+  )
+
+  arkansasBooking = Booking(
+    title= "Charming Cabin w/ a Dryer + a Coffee Maker",
+    userId=(random.randrange(1,10)),
+    price=(random.randrange(50,200)),
+    description="Thinking about visiting Little Rock? I have a 3-bedroom cabin that will be perfect for your stay. This charming rental comes with amenities such as a dryer, a coffee maker, and a TV. Our private bathroom and living room are yours to enjoy, as well.",
+    address="500 Woodlane St",
+    stateId=4
+  )
+
+  californiaBooking = Booking(
+    title="Rare Villa w/ a Dryer + Free Parking"
+    userId=(random.randrange(1,10)),
+    price=(random.randrange(50,200)),
+    description="My rare 5-bedroom villa in Sacramento comes complete with hot tub, indoor fireplace, and living room. The a dryer, free parking, and a coffee maker will make you wish you could stay even longer. If you rent my Airbnb, I know you'll have a great stay in Sacramento."
+    stateId=5
+  )
+
+  coloradoBooking = Booking(
+    
   )
