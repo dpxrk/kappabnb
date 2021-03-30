@@ -9,8 +9,8 @@ class Review(db.Model):
   bookingId = db.Column(db.Integer, db.ForeignKey('bookings.id'), nullable=False)
   numberOfStars = db.Column(db.Integer)
   content = db.Column(db.Text, nullable=False)
-
   booking = db.relationship('Booking', backref='reviews')
+  user = db.relationship('User', backref='reviews')
 
   def to_dict(self):
     return {
