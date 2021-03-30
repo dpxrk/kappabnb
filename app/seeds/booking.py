@@ -102,7 +102,7 @@ def seed_bookings():
     stateId=11,
   )
 
-  IdahoBooking = Booking(
+  idahoBooking = Booking(
     title='Glamorous Cottage w/ a Dryer + Hot Tub',
     userId=(random.randrange(1,13)),
     price=(random.randrange(50,200)),
@@ -470,3 +470,50 @@ def seed_bookings():
   db.session.add(delawareBooking)
   db.session.add(floridaBooking)
   db.session.add(georgiaBooking)
+  db.session.add(hawaiiBooking)
+  db.session.add(idahoBooking)
+  db.session.add(illinoisBooking)
+  db.session.add(indianaBooking)
+  db.session.add(iowaBooking)
+  db.session.add(kansasBooking)
+  db.session.add(kentuckyBooking)
+  db.session.add(louisianaBooking)
+  db.session.add(maineBooking)
+  db.session.add(marylandBooking)
+  db.session.add(massachusettsBooking)
+  db.session.add(michiganBooking)
+  db.session.add(minnesotaBooking)
+  db.session.add(mississippiBooking)
+  db.session.add(missouriBooking)
+  db.session.add(montanaBooking)
+  db.session.add(nebraksaBooking)
+  db.session.add(nevadaBooking)
+  db.session.add(newHampshireBooking)
+  db.session.add(newJerseyBooking)
+  db.session.add(newMexicoBooking)
+  db.session.add(newYorkBooking)
+  db.session.add(northCarolinaBooking)
+  db.session.add(northDakotaBooking)
+  db.session.add(ohioBooking)
+  db.session.add(oklahomaBooking)
+  db.session.add(oregonBooking)
+  db.session.add(pennsylvaniaBooking)
+  db.session.add(rhodeIslandBooking)
+  db.session.add(southCarolinaBooking)
+  db.session.add(southDakotaBooking)
+  db.session.add(tennesseeBooking)
+  db.session.add(texasBooking)
+  db.session.add(utahBooking)
+  db.session.add(vermontBooking)
+  db.session.add(virginiaBooking)
+  db.session.add(washingtonBooking)
+  db.session.add(westVirginiaBooking)
+  db.session.add(wisconsinBooking)
+  db.session.add(wyomingBooking)
+
+  db.session.commit()
+
+
+def undo_booking():
+  db.session.execute('TRUNCATE bookings;')
+  db.session.commit()

@@ -17,3 +17,9 @@ def seed_bookingsAmenities():
 
 
   db.session.commit()
+
+
+
+def undo_bookingsAmenities():
+  db.session.excecute("TRUNCATE bookingsAmenities;")
+  db.session.commit()
