@@ -30,10 +30,10 @@ class Booking(db.Model):
     return {
       'id': self.id,
       'title': self.title,
-      'userId': userFullName
+      'userId': userFullName,
       'price': float(self.price),
       'description': self.description,
       'address' : self.address,
-      'pictures': [picture.photoURL for picture in self.pictures]
+      'pictures': [picture.photoURL for picture in self.pictures],
       'state' : state
     }

@@ -1,11 +1,11 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, HiddenField
-from wtforms_validators import DataRequired
+from wtforms.validators import DataRequired
 
 
 
 class ReservationForm(FlaskForm):
   userId = HiddenField('userId')
   bookingId = HiddenField('bookingId')
-  startDate = StringField('startDate',[DataRequired()])
-  endDate = strringField('endDate', [DataRequired()])
+  startDate = StringField('startDate',validators=[DataRequired()])
+  endDate = StringField('endDate', validators=[DataRequired()])

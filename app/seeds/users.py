@@ -31,8 +31,9 @@ def seed_users():
         new_user = User(
             fullName=fake.unique.name(),
             email=fake.email(),
-            password=fake.password(length=15)
-            profileImage=randomProfileImages[count]
+            password=fake.password(length=15),
+            profileImage=randomProfileImages[count],
+            host=True
         )
         count += 1
         db.sesion.add(new_user)
@@ -41,6 +42,7 @@ def seed_users():
 
     db.session.add(demo)
     db.session.add(host)
+    db.session.add(new_user)
 
     db.session.commit()
 
