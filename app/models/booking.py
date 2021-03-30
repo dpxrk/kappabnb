@@ -12,11 +12,13 @@ class Booking(db.Model):
   price = db.Column(db.Numeric, nullable=False)
   description = db.Column(db.Text, nullable=False)
   address = db.Column(db.Text, nullable=False)
+  stateId = db.Column(db.Integer, db.ForeignKey('states.id'), nullable=False,)
   createdAt = db.Column(db.DateTime,  default=db.func.current_timestamp())
   updatedAt = db.Column(db.DateTime,  default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
+
+
   pictures = relationship('Picture', back_populates='bookings')
-
-
+  state = db.relationship('State', backref='states')
   user = db.relationship('User', backref='bookings')
 
   def to_dict(self):

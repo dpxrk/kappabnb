@@ -5,6 +5,7 @@ from app.models import db, Booking, Picture, Review, State, Comment, Reservation
 
 booking_route = Blueprint('booking', __name__)
 
+#get all booking_routes
 @booking_routes.routes('/')
 @login_required
   def allBookings():
@@ -12,6 +13,7 @@ booking_route = Blueprint('booking', __name__)
     return {"bookings" : [booking.to_dict() for booking in bookings]}
 
 
+#get one booking
 @booking_routes.routes('/<int:id>')
 @login_required
   def getOneBooking(id):
