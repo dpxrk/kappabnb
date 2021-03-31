@@ -6,7 +6,7 @@ def seed_bookings():
   alabamaBooking = Booking(
     title='Modern House',
     userId=(random.randrange(1,13)),
-    price=(random.randrange(50,200))
+    price=(random.randrange(50,200)),
     description='My modern 3-bedroom house has everything you need for your Montgomery trip. The unit comes with Wi-Fi, Netflix, and a TV. An ideal base to explore Montgomery.',
     address='103 N Perry St',
     stateId=1
@@ -26,7 +26,7 @@ def seed_bookings():
     userId=(random.randrange(1,13)),
     price=(random.randrange(50,200)),
     description="Want to visit Sacramento without breaking the bank? We have exactly what you're looking for. Our charming bungalow comes with 4 bedrooms, hot tub, indoor fireplace, free coffee and tea, breakfast, and a TV.",
-    address='1700 W Washington St'
+    address='1700 W Washington St',
     stateId=3
   )
 
@@ -80,7 +80,7 @@ def seed_bookings():
     userId=(random.randrange(1,13)),
     price=(random.randrange(50,200)),
     description="Stay in this historic chalet and live like a true local in Tallahassee. We're within driving distance to bus routes, national parks, and night clubs. Our rental comes with 7 bedrooms, and a gym, private bathroom, and indoor fireplace that you're free to use any time. A washer, free coffee and tea, an iron -- we've got everything you need.",
-    address="300 S Adams St"
+    address="300 S Adams St",
     stateId=9
   )
 
@@ -98,7 +98,7 @@ def seed_bookings():
     userId=(random.randrange(1,13)),
     price=(random.randrange(50,200)),
     description="Thinking about visiting Honolulu? I have a 6-bedroom boutique hotel that will be perfect for your stay. This secluded rental comes with amenities such as a dryer, Wi-Fi, and a bike. Our hot tub, private bathroom, and kitchen are yours to enjoy, as well. If you want to go to bus routes, national parks, and night clubs, we're within walking distance.",
-    address="530 S King St"
+    address="530 S King St",
     stateId=11,
   )
 
@@ -224,7 +224,7 @@ def seed_bookings():
     title="Upscale Loft w/ Heating + Private Bathroom",
     userId=(random.randrange(1,13)),
     price=(random.randrange(50,200)),
-    description="Stay in this upscale loft and live like a true local in Jefferson City. We're within walking distance to hikes, national parks, and beaches. Our rental comes with studio, and a private bathroom, kitchen, and kitchenette that you're free to use any time. Heating, a TV -- we've got everything you need."
+    description="Stay in this upscale loft and live like a true local in Jefferson City. We're within walking distance to hikes, national parks, and beaches. Our rental comes with studio, and a private bathroom, kitchen, and kitchenette that you're free to use any time. Heating, a TV -- we've got everything you need.",
     address="320 E McCarty St",
     stateId=25
   )
@@ -260,7 +260,7 @@ def seed_bookings():
     title="Modern House w/ Wi-Fi + Living Room",
     userId=(random.randrange(1,13)),
     price=(random.randrange(50,200)),
-    description="My modern 4-bedroom house has everything you need for your Concord trip. The unit comes with Wi-Fi. During your stay, you can also enjoy using a convenient living room and kitchenette. Our Airbnb is within walking distance to several popular hikes, national parks, and beaches. An ideal base to explore Concord."
+    description="My modern 4-bedroom house has everything you need for your Concord trip. The unit comes with Wi-Fi. During your stay, you can also enjoy using a convenient living room and kitchenette. Our Airbnb is within walking distance to several popular hikes, national parks, and beaches. An ideal base to explore Concord.",
     address='41 Green St',
     stateId=29
   )
@@ -316,7 +316,7 @@ def seed_bookings():
     userId=(random.randrange(1,13)),
     price=(random.randrange(50,200)),
     description="Stay in this charming house and live like a true local in Columbus. We're within walking distance to hikes, national parks, and beaches. Our rental comes with 3 bedrooms, and a hot tub, indoor fireplace, and kitchenette that you're free to use any time. Netflix, a TV, a high chair -- we've got everything you need.",
-    address="90 W Broad St"
+    address="90 W Broad St",
     stateId=35
   )
 
@@ -514,6 +514,6 @@ def seed_bookings():
   db.session.commit()
 
 
-def undo_booking():
+def undo_bookings():
   db.session.execute('TRUNCATE bookings;')
   db.session.commit()

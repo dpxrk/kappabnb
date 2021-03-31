@@ -1,7 +1,7 @@
 from app.models import db, Amenity
 
-
-def seed_amenities(): #17 Amenities
+#17 Amenities
+def seed_amenities():
   heating = Amenity(amenity='Heating')
   AC = Amentiy(amenity='Air-conditioning')
   washer = Amenity(amenity='Washer')

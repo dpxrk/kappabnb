@@ -6,7 +6,7 @@ def seed_pictures():
   alabamaPhotoList=['https://upload.wikimedia.org/wikipedia/commons/1/1b/Montgomery_City_Hall_Feb_2012_02.jpg',
                     'https://exploringmontgomery.com/wp-content/uploads/sites/11/2015/10/mont-city-auditorium-inside.jpg',
                     'https://www.wsfa.com/resizer/Xy2PER0c6QXehiDE6CieKqbwp6U=/1400x0/arc-anglerfish-arc2-prod-raycom.s3.amazonaws.com/public/ACWHPGV4XBDPPCPQZENQCM5OOA.jpg',
-                    'https://livingnewdeal.org/wp-content/uploads/2011/12/IMG_0820.jpg
+                    'https://livingnewdeal.org/wp-content/uploads/2011/12/IMG_0820.jpg'
                     ]
 
   alaksaPhotoList=['https://media.ktoo.org/2019/05/DowtownParkingGarage-830x552.jpg',
@@ -84,7 +84,7 @@ def seed_pictures():
   wyomingPhotoList=["https://media.cntraveler.com/photos/53e2d8ffc2d3f39d3610506d/master/w_1600%2Cc_limit/wyoming-state-capitol-building.jpg", "https://m.psecn.photoshelter.com/img-get2/I0000cwFXR_B4Hh4/fit=1000x750/Wyoming-Cheyenne-Wyoming-State-Capitol-Interior-Staircase.jpg", "https://www.cheyennecity.org/files/oc-templates/00000000-0000-0000-0000-000000000000/b32c9b6c-7400-488a-8246-4bc7b2004122/Municipal_Building_drone1.jpg", "https://image1.masterfile.com/getImage/NzAwLTAwMDg4NTAxZW4uMDAwMDAwMDA=AMa-4h/700-00088501en_Masterfile.jpg"]
 
   count = 0
-  while count < 4
+  while count < 4:
     alabama = Picture(
       bookingId=1,
       photoURL=alabamaPhotoList[count]
@@ -223,4 +223,9 @@ def seed_pictures():
 
 
 
+  db.session.commit()
+
+
+def undo_pictures():
+  db.session.execute('TRUNCATE pictures;')
   db.session.commit()
