@@ -195,7 +195,7 @@ def seed_bookings():
     userId=(random.randrange(1,12)),
     price=(random.randrange(50,200)),
     description="Thinking about visiting Baton Rouge? I have a 8-bedroom chalet that will be perfect for your stay. This luxurious rental comes with amenities such as AC, laptop-friendly workspace, and a hair dryer. Our indoor fireplace, kitchen, and living room are yours to enjoy, as well. If you want to go to hikes, national parks, and beaches, we're within walking distance.",
-    address="640 Capitol Access Road,
+    address="640 Capitol Access Road",
     stateId=18,
     lat=30.457340841899573,
     lng= -91.18648796466717
