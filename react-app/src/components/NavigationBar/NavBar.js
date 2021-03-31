@@ -1,36 +1,43 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "./navbar.css";
 
-const NavBar = ({ setAuthenticated }) => {
-  const sessionUser = useSelector((state) => state.session.user);
-  const history = useHistory();
-
-  return (
+const NavBar = ({ authenticated, setAuthenticated }) => {
+  return authenticated ? (
     <nav className="navBarContainer">
-      <div className="topNavBarLinks">
-        <div>
+      <ul className="topNavBarLinks">
+        <li>
           <NavLink to="/" exact={true} activeClassName="active">
             Home
           </NavLink>
-        </div>
-        <div>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
-            Sign Up
-          </NavLink>
-        </div>
+        </li>
         <li>
           <LogoutButton setAuthenticated={setAuthenticated} />
         </li>
-      </div>
+      </ul>
+    </nav>
+  ) : (
+    <nav className="navBarContainer">
+      <ul className="topNavBarLinks">
+        <li>
+          <NavLink to="/" exact={true} activeClassName="active">
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/login" exact={true} activeClassName="active">
+            Login
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/sign-up" exact={true} activeClassName="active">
+            Sign Up
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 };

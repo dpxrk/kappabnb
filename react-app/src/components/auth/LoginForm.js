@@ -42,7 +42,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     <div className="Big">
       <div className="login-form">
         <form onSubmit={onLogin}>
-          <h1>KappaBnB</h1>
+          <div className="kappa">KappaBnB</div>
+
           <div>
             <input
               name="email"

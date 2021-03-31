@@ -1,6 +1,6 @@
-const SET_BOOKINGS = "SET_BOOKINGS";
+const GET_BOOKINGS = "GET_BOOKINGS";
 
-const allBookings = (bookings) => {
+const loadBookings = (bookings) => {
   return {
     type: SET_BOOKINGS,
     bookings,
@@ -12,7 +12,24 @@ export const getAllBookings = () => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(allBookings(data));
+    dispatch(loadBookings(data));
   }
   return data;
 };
+
+const initialState = [];
+
+const bookingReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_BOOKINGS:
+      const allBookings = [];
+      action.bookings.bookings.forEach((booking) => {
+        allBookings.push(booking);
+      });
+      return {
+        allBookings,
+      };
+  }
+};
+
+export default bookingReducer;

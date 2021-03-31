@@ -1,25 +1,16 @@
 /* Login CSS */
 
 /* Added CSS variables */
-:root {
-  --flag-height: 500px;
-  --flag-width: 300px;
-  --flag-bg-size: contain;
-  --flag-bg-repeat: no-repeat;
-  --flag-tf-origin: top;
-  --flag-rotation: 35deg;
-}
 
 .Big {
   display: flex;
-  width: 100%;
-  /* Added to display for even space */
   justify-content: space-around;
-  /* Bo's CSS */
-  /* height            : 87vh; */
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7674aee8-a93d-4e4a-8a60-456b3770bbba/de0v9tj-c97b0335-e675-400c-8156-55fb57f37d66.jpg/v1/fill/w_1280,h_854,q_75,strp/washington_dc_capitol_ii_by_boldfrontiers_de0v9tj-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD04NTQiLCJwYXRoIjoiXC9mXC83Njc0YWVlOC1hOTNkLTRlNGEtOGE2MC00NTZiMzc3MGJiYmFcL2RlMHY5dGotYzk3YjAzMzUtZTY3NS00MDBjLTgxNTYtNTVmYjU3ZjM3ZDY2LmpwZyIsIndpZHRoIjoiPD0xMjgwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.NT4CI68CzCHmP60OP5yybka4Zq2QMn2jYz7ycu8l_X8");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-/* Added a flag group to apply to all flags */
 
 .err {
   color: red;
@@ -29,8 +20,6 @@
 }
 
 .login-form {
-  /* Bo's CSS */
-  /* background-color: #fafafa; */
   margin-bottom: 500px;
   margin-left: 0;
   height: 600px;
@@ -40,11 +29,12 @@
   text-align: center;
 }
 
-.login-form h1 {
-  font-family: "Neue Helvetica";
+.kappa {
+  font-family: "Nunito Sans";
   text-align: center;
-  font-size: 40px;
-  color: rgb(20, 20, 20);
+  font-size: 80px;
+  color: #f79d84;
+  font-weight: bold;
 }
 
 .login-form form {
@@ -57,7 +47,7 @@
   background-color: #fafafa;
   border: 1px solid #dbdbdb;
   border-radius: 3px;
-  color: rgb(38, 38, 38);
+  color: rgb(233, 227, 227);
   margin: 0 40px 6px;
   padding: 10px;
   width: 250px;
@@ -81,6 +71,9 @@
   padding: 10px;
   max-width: 350px;
   margin: 10px auto;
+  font-size: 20px;
+  color: #f79d84;
+  background-color: transparent;
 }
 
 /* Changed color of signUp link */
@@ -107,7 +100,6 @@
     background-position: 0% 0%;
   }
 }
-
 
 /* Sign Up CSS */
 
