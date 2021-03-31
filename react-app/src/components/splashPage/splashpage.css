@@ -1,0 +1,138 @@
+body {
+  background-color: #131516;
+}
+
+.landingPage {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.landingPage > img {
+  width: 100%;
+  /* height: 1000px; */
+}
+
+.blackBar {
+  background-color: black;
+  width: 100%;
+  height: 24px;
+  padding-top: 70px;
+  padding-bottom: 44px;
+}
+
+.middleText {
+  width: 100%;
+  display: flex;
+  font-family: "Nunito Sans";
+  background-color: black;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+}
+
+.madePossible {
+  font-size: 48px;
+}
+
+.stayAnywhere {
+  font-size: 32px;
+  font-family: "Nunito Sans";
+  margin-left: 80px;
+}
+
+.differentCapitalBuildings > img {
+  width: 360px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.fourImageContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.fourCenterImages {
+  font-family: "Nunito Sans";
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+  align-items: center;
+}
+
+.differentCapitalBuildings {
+  margin-left: 80px;
+  margin-right: 20px;
+}
+
+.becomeAHostContainer > img {
+  height: 482px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.becomeAHostContainer {
+  margin: 0 10% 100px 10%;
+  font-family: "Nunito Sans";
+  overflow: hidden;
+  position: relative;
+}
+
+.becomeAHostContainerText {
+  position: absolute;
+  top: 0px;
+  left: 100px;
+  width: 400px;
+}
+
+.becomeAHostContainerText {
+  color: white;
+}
+
+.becomeAHostContainerText > h1 {
+  font-size: 40px;
+  font-family: "Nunito Sans";
+}
+
+.becomeAHostContainerText > h4 {
+  font-size: 20px;
+  font-family: "Nunito Sans";
+}
+
+.becomeAHostContainerText > button {
+  background-color: white;
+  outline: none;
+  border: none;
+  font-family: "Nunito Sans";
+  font-weight: bold;
+  height: 50px;
+  font-size: 20px;
+  width: 200px;
+  border-radius: 30px;
+}
+
+.becomeAHostContainerText > button:hover {
+  background-color: #ff0000;
+  color: blue;
+}
+
+.footerContainer {
+  width: 100%;
+  background-color: #f7f7f7;
+  border-top: 1px solid #dddddd;
+  font-family: "Nunito Sans";
+  color: #f7f7f7;
+}
+
+.contactList {
+  list-style-type: none;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

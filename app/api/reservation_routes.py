@@ -25,7 +25,7 @@ def getOneReservation(id):
 
 
 #create a new reservations
-@reservation_routes.route('/')
+@reservation_routes.route('/', methods=['POST'])
 @login_required
 def createNewReservation():
   form = ReservationForm()

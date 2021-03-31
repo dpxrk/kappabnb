@@ -12,14 +12,16 @@ class Booking(db.Model):
   price = db.Column(db.Numeric, nullable=False)
   description = db.Column(db.Text, nullable=False)
   address = db.Column(db.Text, nullable=False)
-  stateId = db.Column(db.Integer, db.ForeignKey('states.id'), nullable=False,)
+  stateId = db.Column(db.Integer, db.ForeignKey('states.id'), nullable=False)
+  lng = db.Column(db.Numeric, nullable=False)
+  lat = db.Column(db.Numeric, nullable=False)
   createdAt = db.Column(db.DateTime,  default=db.func.current_timestamp())
   updatedAt = db.Column(db.DateTime,  default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
-
-
-  pictures = relationship('Picture', back_populates='bookings')
+  pictures = db.relationship("Picture", backref='bookings')
   state = db.relationship('State', backref='states')
   user = db.relationship('User', backref='bookings')
+
+
 
 
 
@@ -35,5 +37,7 @@ class Booking(db.Model):
       'description': self.description,
       'address' : self.address,
       'pictures': [picture.photoURL for picture in self.pictures],
-      'state' : state
+      'state' : state,
+      "lng": self.lng,
+      "lat": self.lat,
     }

@@ -6,3 +6,4 @@ from .reservation import Reservation
 from .review import Review
 from .state import State
 from .comment import Comment
+from .amenity import Amenity

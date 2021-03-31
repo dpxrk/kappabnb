@@ -1,0 +1,208 @@
+/* Login CSS */
+
+/* Added CSS variables */
+
+.Big {
+  display: flex;
+  justify-content: space-around;
+  background-image: url("https://images.unsplash.com/photo-1568920088183-3cce8a41a79f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2155&q=80");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.err {
+  color: red;
+  font-weight: bolder;
+  text-align: left;
+  margin-left: 43px;
+}
+
+.login-form {
+  margin-left: 0;
+  height: 1500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.kappa {
+  font-family: "Nunito Sans";
+  text-align: center;
+  font-size: 80px;
+  color: white;
+  font-weight: bold;
+}
+
+.login-form form {
+  padding: 10px;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.login-form input {
+  font-family: "Nunito Sans";
+  background-color: #131516;
+  border-radius: 3px;
+  border: 1px solid #131516;
+  color: rgb(255, 255, 255);
+  margin: 0 40px 6px;
+  padding: 10px;
+  width: 250px;
+}
+
+.login-form button {
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(191, 215, 248));
+  color: white;
+  font-weight: bolder;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  margin: 0 40px 6px;
+  padding: 10px;
+  width: 272px;
+  font-family: "Nunito Sans";
+}
+
+.demoButton {
+  margin-left: 50px;
+}
+
+.signup-link-box {
+  background-color: #fff;
+  padding: 10px;
+  max-width: 350px;
+  margin: 10px auto;
+  font-size: 20px;
+  color: White;
+  background-color: transparent;
+}
+
+/* Changed color of signUp link */
+.signUp {
+  color: rgb(11, 117, 184);
+}
+
+.login-form button:hover {
+  background: linear-gradient(45deg, rgb(0, 219, 235), rgb(0, 95, 219));
+  background-size: 300% 300%;
+  animation: easy 4s ease-in-out infinite;
+}
+
+@keyframes easy {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Sign Up CSS */
+
+.signUpContainer {
+  background-image: url("https://images.unsplash.com/photo-1568920088183-3cce8a41a79f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2155&q=80");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.signup-form {
+  /* background-color: #fafafa; */
+  margin-left: 0;
+  height: 1500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.signup-form h1 {
+  font-family: "Nunito Sans";
+  text-align: center;
+  font-size: 40px;
+  color: rgb(20, 20, 20);
+}
+
+.signup-form form {
+  /* background-color: #fff; */
+
+  padding: 10px;
+  max-width: 350px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.signup-form input {
+  background-color: #131516;
+  border-radius: 3px;
+  border: 1px solid #131516;
+  color: rgb(255, 255, 255);
+  margin: 0 40px 6px;
+  padding: 10px;
+  width: 250px;
+}
+
+.signup-form button {
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(191, 215, 248));
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  margin: 0 40px 6px;
+  padding: 10px;
+  width: 275px;
+}
+
+.signup-form button:hover {
+  background: linear-gradient(45deg, rgb(0, 219, 235), rgb(0, 95, 219));
+  background-size: 300% 300%;
+  animation: easy 4s ease-in-out infinite;
+}
+
+@keyframes easy {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.login-link-box {
+  /* background-color: #fff; */
+  padding: 10px;
+  max-width: 350px;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 20px;
+  background-color: transparent;
+  font-family: "Nunito Sans";
+  color: white;
+}
+
+.login-link-text {
+  color: white;
+}
+
+.login-form .demoButton {
+  margin-left: 50px;
+  font-family: "Nunito Sans";
+}
+
+.login {
+  color: white;
+}

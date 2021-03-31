@@ -36,7 +36,7 @@ def seed_users():
             host=True
         )
         count += 1
-        db.sesion.add(new_user)
+        db.session.add(new_user)
 
 
 

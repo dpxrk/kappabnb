@@ -45,20 +45,12 @@ export const logout = () => async (dispatch) => {
   return res;
 };
 
-export const signUp = async (
-  userName,
-  firstName,
-  lastName,
-  email,
-  password
-) => {
+export const signUp = async (fullName, email, password) => {
   const build = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      userName,
-      firstName,
-      lastName,
+      fullName,
       email,
       password,
     }),
