@@ -6,6 +6,9 @@ import { useHistory } from "react-router-dom";
 import "./navbar.css";
 
 const NavBar = ({ authenticated, setAuthenticated }) => {
+  const sessionUser = useSelector((state) => state?.session?.user);
+  console.log("THIS IS THE SESSION USER", sessionUser);
+
   return authenticated ? (
     <nav className="navBarContainer">
       <ul className="topNavBarLinks">
@@ -13,6 +16,15 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
           <NavLink to="/" exact={true} activeClassName="active">
             Home
           </NavLink>
+        </li>
+        <li>
+          <NavLink to="/explore" exact={true} activeClassName="active">
+            Explore
+          </NavLink>
+        </li>
+        <li>
+          {" "}
+          <img src={sessionUser?.profileImage} className="profileImage" />
         </li>
         <li>
           <LogoutButton setAuthenticated={setAuthenticated} />

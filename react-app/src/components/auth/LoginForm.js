@@ -81,7 +81,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           <div className="signup-link-text">
             Don't have an account?&nbsp;
             <NavLink
-              to="/signup"
+              to="/sign-up"
               style={{ textDecoration: "none" }}
               className="signUp"
             >

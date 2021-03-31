@@ -2,7 +2,7 @@ const GET_BOOKINGS = "GET_BOOKINGS";
 
 const loadBookings = (bookings) => {
   return {
-    type: SET_BOOKINGS,
+    type: GET_BOOKINGS,
     bookings,
   };
 };
@@ -13,8 +13,8 @@ export const getAllBookings = () => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(loadBookings(data));
+    return data;
   }
-  return data;
 };
 
 const initialState = [];
@@ -29,6 +29,8 @@ const bookingReducer = (state = initialState, action) => {
       return {
         allBookings,
       };
+    default:
+      return state;
   }
 };
 

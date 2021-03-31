@@ -1,37 +1,22 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import { signUp } from "../../store/auth";
+import { Redirect, NavLink } from "react-router-dom";
+import { signUp, setUser } from "../../store/auth";
+import { useDispatch } from "react-redux";
+import "./index.css";
 
 const SignUpForm = ({ authenticated, setAuthenticated }) => {
+  const dispatch = useDispatch();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const user = await signUp(fullName, email, password);
-      if (!user.errors) {
-        setAuthenticated(true);
-      }
+    const user = await signUp(fullName, email, password);
+    if (!user.errors) {
+      dispatch(setUser(user));
+      setAuthenticated(true);
     }
-  };
-
-  const updateFullName = (e) => {
-    setFullName(e.target.value);
-  };
-
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const updateRepeatPassword = (e) => {
-    setRepeatPassword(e.target.value);
   };
 
   if (authenticated) {
@@ -39,46 +24,54 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        <label>Full Name</label>
-        <input
-          type="text"
-          name="full name"
-          onChange={updateFullName}
-          value={fullName}
-        ></input>
+    <div className="signUpContainer">
+      <div className="signup-form">
+        <form onSubmit={onSignUp}>
+          <div className="kappa">KappaBnB</div>
+          <div>
+            <input
+              name="fullName"
+              type="text"
+              placeholder="Full Name"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            ></input>
+          </div>
+
+          <div>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            ></input>
+          </div>
+          <button type="submit">Sign up</button>
+        </form>
+        <div className="login-link-box">
+          <div className="login-link-text">
+            Have an account?&nbsp;
+            <NavLink
+              to="/login"
+              style={{ textDecoration: "none" }}
+              className="login"
+            >
+              Log in
+            </NavLink>
+          </div>
+        </div>
       </div>
-      <div>
-        <label>Email</label>
-        <input
-          type="text"
-          name="email"
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type="password"
-          name="repeat_password"
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type="submit">Sign Up</button>
-    </form>
+    </div>
   );
 };
 

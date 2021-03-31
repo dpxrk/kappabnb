@@ -1,3 +1,7 @@
+body {
+  background-color: #131516;
+}
+
 .landingPage {
   background-color: black;
   display: flex;
@@ -120,6 +124,7 @@
   background-color: #f7f7f7;
   border-top: 1px solid #dddddd;
   font-family: "Nunito Sans";
+  color: #f7f7f7;
 }
 
 .contactList {

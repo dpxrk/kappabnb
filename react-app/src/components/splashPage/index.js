@@ -9,9 +9,8 @@ const SplashPage = () => {
   // const history = useHistory();
 
   return (
-    <div>
+    <div className="entireBackGround">
       <div className="blackBar">
-        !Keep!
         <div className="landingPage">
           <img
             alt="capitalBackGroundPhoto"
