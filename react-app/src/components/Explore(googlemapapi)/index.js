@@ -24,15 +24,15 @@ const Explore = ({ location, authenticated }) => {
     dispatch(getAllBookings());
   });
 
-  return (
-    <LoadScript googleMapsApiKey={process.env.REACT_APP_GMAPIKEY}>
-      {location && (
-        <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={location}>
-          <Marker position={location} />
-        </GoogleMap>
-      )}
-    </LoadScript>
-  );
+  // return (
+  //   // <LoadScript googleMapsApiKey={process.env.REACT_APP_GMAPIKEY}>
+  //   //   {location && (
+  //   //     <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={location}>
+  //   //       <Marker position={location} />
+  //   //     </GoogleMap>
+  //   //   )}
+  //   // </LoadScript>
+  // );
 };
 
 export default Explore;

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Redirect, NavLink } from "react-router-dom";
-import { signUp, setUser } from "../../store/auth";
-import { useDispatch } from "react-redux";
+import { signUp } from "../../store/auth";
+
 import "./index.css";
 
 const SignUpForm = ({ authenticated, setAuthenticated }) => {
-  const dispatch = useDispatch();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +13,6 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
     e.preventDefault();
     const user = await signUp(fullName, email, password);
     if (!user.errors) {
-      dispatch(setUser(user));
       setAuthenticated(true);
     }
   };
@@ -42,8 +40,8 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               type="text"
               name="email"
               placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
               value={email}
+              onChange={(e) => setEmail(e.target.value)}
             ></input>
           </div>
 
@@ -52,8 +50,8 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               type="password"
               name="password"
               placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
               value={password}
+              onChange={(e) => setPassword(e.target.value)}
             ></input>
           </div>
           <button type="submit">Sign up</button>
