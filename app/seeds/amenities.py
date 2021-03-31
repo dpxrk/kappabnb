@@ -3,10 +3,10 @@ from app.models import db, Amenity
 #17 Amenities
 def seed_amenities():
   heating = Amenity(amenity='Heating')
-  AC = Amentiy(amenity='Air-conditioning')
+  AC = Amenity(amenity='Air-conditioning')
   washer = Amenity(amenity='Washer')
   dryer = Amenity(amenity='Dryer')
-  wifi = Amenity(amenity='Washer')
+  wifi = Amenity(amenity='Wi-fi')
   netflix = Amenity(amenity='Netflix')
   roku = Amenity(amenity='Roku TV')
   selfCheckIn = Amenity(amenity='Self Check In')
@@ -32,7 +32,7 @@ def seed_amenities():
   db.session.add(selfCheckIn)
   db.session.add(freeParking)
   db.session.add(laptopFriendly)
-  db.session.add(freeCoffeeandTea)
+  db.session.add(freeCoffeeAndTea)
   db.session.add(bike)
   db.session.add(coffeeMaker)
   db.session.add(shampoo)

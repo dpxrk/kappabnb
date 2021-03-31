@@ -1,4 +1,4 @@
-from app.models import Review
+from app.models import db, Review
 import random
 
 def seed_reviews():
@@ -15,7 +15,7 @@ def seed_reviews():
   while count < 50:
     new_review = Review(
       userId=(random.randrange(1,12)),
-      bookingId=(random.randrange(0,50)),
+      bookingId=(count+1),
       numberOfStars=(random.randrange(1, 6)),
       content=reviewComments[random.randrange(0,5)]
     )

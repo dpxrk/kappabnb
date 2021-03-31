@@ -16,10 +16,11 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_users()
     seed_states()
-    seed_reviews()
-    seed_pictures()
     seed_bookings()
-    seed_bookingsAmenities()
+    seed_pictures()
+    seed_reviews()
+    seed_amenities()
+    # seed_bookingsAmenities()  <-- Need to fix onjoining the table insert
     # Add other seed functions here
 
 # Creates the `flask seed undo` command
@@ -29,6 +30,7 @@ def undo():
     undo_states()
     undo_reviews()
     undo_pictures()
-    undo_bookinsg()
-    undo_bookingsAmenities()
+    undo_bookings()
+    undo_amenities()
+    # undo_bookingsAmenities() <-- need to fix on joining the table table
     # Add other undo functions here

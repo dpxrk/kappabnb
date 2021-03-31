@@ -1,4 +1,4 @@
-from app.models import State
+from app.models import db, State
 
 
 def seed_states():
@@ -35,8 +35,8 @@ def seed_states():
    'New Jersey',
    'New Mexico',
    'New York',
-   'North Carolina',
    'North Dakota',
+   'North Carolina',
    'Ohio',
    'Oklahoma',
    'Oregon',
@@ -59,7 +59,7 @@ def seed_states():
     'Montgomery',
     'Juneau',
     'Phoenix',
-    'Little Rock'
+    'Little Rock',
     'Sacramento',
     'Denver',
     'Hartford',
@@ -87,7 +87,7 @@ def seed_states():
     'Concord',
     'Trenton',
     'Santa Fe',
-    'New York',
+    'Albany',
     'Raleigh',
     'Bismarck',
     'Columbus',

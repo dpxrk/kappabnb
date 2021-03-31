@@ -9,7 +9,7 @@ def seed_pictures():
                     'https://livingnewdeal.org/wp-content/uploads/2011/12/IMG_0820.jpg'
                     ]
 
-  alaksaPhotoList=['https://media.ktoo.org/2019/05/DowtownParkingGarage-830x552.jpg',
+  alaskaPhotoList=['https://media.ktoo.org/2019/05/DowtownParkingGarage-830x552.jpg',
   'https://chstm2y9cx63tv84u2p8shc3-wpengine.netdna-ssl.com/wp-content/uploads/2019/06/City-Hall.jpg',
   'https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_600,q_75,w_1200/v1/clients/juneau/TJJO_Downtown_Juneau_4_2015_868ae45f-1b73-4c52-9c4f-dbea12170952.jpg',
   'https://mm.aiircdn.com/258/5cff08bd4c1cd.jpg']
@@ -80,7 +80,7 @@ def seed_pictures():
 
   washingtonPhotoList=["https://media.cntraveler.com/photos/53e2d8f4c2d3f39d36105037/master/w_1600%2Cc_limit/washington-state-capitol-building.jpg", "https://c8.alamy.com/comp/B1T8XC/interior-of-rotunda-of-washington-state-legislative-building-in-the-B1T8XC.jpg", "https://i.pinimg.com/originals/7d/23/2f/7d232f573c2c944171086ed8992c0956.jpg", "https://bloximages.newyork1.vip.townnews.com/ifiberone.com/content/tncms/assets/v3/editorial/b/15/b15c6d18-8ca2-11eb-8740-73e99648ad6b/605b3b05bbd5f.image.jpg" ]
   westvirginiaPhotoList=["https://media.cntraveler.com/photos/53e2d8f7c2d3f39d36105049/master/w_1600%2Cc_limit/west-virginia-state-capitol-building.jpg", "https://www.charlestonwv.gov/sites/default/files/footer-images/cityhall.jpg", "https://media-cdn.tripadvisor.com/media/photo-s/0a/2f/a9/f6/city-hall-charleston.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/The_West_Virginia_Capitol_in_Charleston_LCCN2015631770.tif/lossy-page1-1200px-The_West_Virginia_Capitol_in_Charleston_LCCN2015631770.tif.jpg"]
-  wisconsinPhotoList=["https://media.cntraveler.com/photos/53e2d8fcc2d3f39d3610505b/master/w_1600%2Cc_limit/wisconsin-state-capitol-building.jpg", "https://www.cityofmadison.com/sites/default/files/category/images/imageSkyline.jpg", "https://previews.123rf.com/images/benkrut/benkrut1109/benkrut110900042/10484363-interior-of-state-capitol-building-in-madison-wisconsin-usa.jpg"]
+  wisconsinPhotoList=["https://media.cntraveler.com/photos/53e2d8fcc2d3f39d3610505b/master/w_1600%2Cc_limit/wisconsin-state-capitol-building.jpg", "https://www.cityofmadison.com/sites/default/files/category/images/imageSkyline.jpg", "https://previews.123rf.com/images/benkrut/benkrut1109/benkrut110900042/10484363-interior-of-state-capitol-building-in-madison-wisconsin-usa.jpg","https://www.cityofmadison.com/sites/default/files/city-of-madison/engineering/images/MMB_EXTERIOR%2520RENDER_2016-09-15.jpg" ]
   wyomingPhotoList=["https://media.cntraveler.com/photos/53e2d8ffc2d3f39d3610506d/master/w_1600%2Cc_limit/wyoming-state-capitol-building.jpg", "https://m.psecn.photoshelter.com/img-get2/I0000cwFXR_B4Hh4/fit=1000x750/Wyoming-Cheyenne-Wyoming-State-Capitol-Interior-Staircase.jpg", "https://www.cheyennecity.org/files/oc-templates/00000000-0000-0000-0000-000000000000/b32c9b6c-7400-488a-8246-4bc7b2004122/Municipal_Building_drone1.jpg", "https://image1.masterfile.com/getImage/NzAwLTAwMDg4NTAxZW4uMDAwMDAwMDA=AMa-4h/700-00088501en_Masterfile.jpg"]
 
   count = 0

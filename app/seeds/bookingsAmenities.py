@@ -10,16 +10,14 @@ def seed_bookingsAmenities():
 
 
   count = 1
-  while count < 500:
-    newBookingAmenitiesJoin = bookingsAmenitiesJoinTable(
-      bookingId = (random.randrange(1,50)),
-      amenityId = (random.range(1,17))
-    )
+  while count < 50:
+    for num in range (1, 17):
+      new_join = bookingsAmenitiesJoinTable.insert().values(bookingId=(count), amenityId=num)
+      db.session.execute(new_join)
     count += 1
-    db.session.add(newBookingAmenitiesJoin)
-
 
   db.session.commit()
+
 
 
 
