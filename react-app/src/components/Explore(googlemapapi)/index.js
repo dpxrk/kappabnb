@@ -35,7 +35,7 @@ const Explore = () => {
               // onCenterChanged={() => {
               //   console.log("center change");
               // }}
-              zoom={10}
+              zoom={5}
             >
               {bookings.map((booking, idx) => (
                 <Marker
@@ -48,7 +48,7 @@ const Explore = () => {
         </LoadScript>
       </div>
       <div className="rightHalfOfPage">
-        <div></div>
+        <div className='Center'>Click on a city!</div>
       </div>
     </div>
   );

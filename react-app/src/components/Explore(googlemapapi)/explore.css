@@ -20,3 +20,9 @@ body {
   width: 50%;
   border: 1px solid white;
 }
+
+.Center {
+  display: flex;
+ text-align: center;
+  font-family: "Nunito Sans";
+}
