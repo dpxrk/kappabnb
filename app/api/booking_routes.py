@@ -18,14 +18,13 @@ def getOneBooking(id):
   booking = Booking.query.get(id)
   pictures = Picture.query.filter_by(bookingId=id).all()
   reviews = Review.query.filter_by(bookingId=id).all()
-  # host = User.query.get(Booking.userId)
   state = Booking.query.filter_by(Booking.stateId==id).first()
+
 
   bookingData = {**booking.to_dict()}
   bookingData['booking'] = booking
   bookingData['pictures'] = [picture.to_dict() for picture in pictures]
   bookingData['reviews'] = [review.to_dict() for review in reviews]
-  # bookingData['host'] = host
   bookingData['State'] = state
 
   return bookingData

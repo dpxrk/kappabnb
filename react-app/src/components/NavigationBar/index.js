@@ -12,10 +12,10 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
 
   return authenticated ? (
     <nav className="navBarContainer">
-      <div className="homeLogo" onClick={() => history.push("/")}>
-        KappaBnB
-      </div>
       <ul className="topNavBarLinks">
+        <div className="homeLogo" onClick={() => history.push("/")}>
+          <h2>KappaBnB </h2>
+        </div>
         <li>
           <NavLink to="/" exact={true} activeClassName="active">
             Home

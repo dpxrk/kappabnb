@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./splashpage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { getAllBookings } from "../../store/booking";
 
 const SplashPage = () => {
-  // const dispatch = useDispatch();
-  // const session = useSelector((state) => state.session);
-  // const history = useHistory();
+  const dispatch = useDispatch();
+  const bookings = useSelector((state) => state?.allBookings);
+
+  useEffect(() => {
+    dispatch(getAllBookings(bookings));
+  }, [bookings]);
 
   return (
     <div className="entireBackGround">
