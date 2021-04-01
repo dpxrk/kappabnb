@@ -25,9 +25,9 @@ function App() {
     })();
   }, []);
 
-  if (!loaded) {
-    return null;
-  }
+  // if (!loaded) {
+  //   return null;
+  // }
 
   return (
     <>
@@ -49,6 +49,7 @@ function App() {
           path="/explore"
           exact={true}
           authenticated={authenticated}
+          setAutheenticated={setAuthenticated}
         >
           <Explore />
         </ProtectedRoute>

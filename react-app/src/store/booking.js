@@ -10,14 +10,16 @@ const loadBookings = (bookings) => {
 export const getAllBookings = () => async (dispatch) => {
   const response = await fetch(`/api/bookings`);
 
+  console.log("THIS IS INSIDE GETALLBOOKINGS");
   if (response.ok) {
     const data = await response.json();
+    console.log("THIS IS DATA", data);
     dispatch(loadBookings(data));
     return data;
   }
 };
 
-const initialState = [];
+const initialState = {};
 
 const bookingReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -27,7 +29,7 @@ const bookingReducer = (state = initialState, action) => {
         allBookings.push(booking);
       });
       return {
-        allBookings,
+        listOfBookings: allBookings,
       };
     default:
       return state;
