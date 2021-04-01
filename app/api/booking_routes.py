@@ -16,15 +16,8 @@ def allBookings():
 @booking_routes.route('/<int:id>')
 def getOneBooking(id):
   booking = Booking.query.get(id)
-  pictures = Picture.query.filter_by(bookingId=id).all()
   reviews = Review.query.filter_by(bookingId=id).all()
-  state = Booking.query.filter_by(Booking.stateId==id).first()
-
-
   bookingData = {**booking.to_dict()}
-  bookingData['booking'] = booking
-  bookingData['pictures'] = [picture.to_dict() for picture in pictures]
   bookingData['reviews'] = [review.to_dict() for review in reviews]
-  bookingData['State'] = state
 
   return bookingData
