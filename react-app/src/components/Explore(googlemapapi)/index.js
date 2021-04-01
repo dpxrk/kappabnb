@@ -1,37 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  GoogleMap,
-  useJsApiLoader,
-  LoadScript,
-  Marker,
-} from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import "./explore.css";
 
 import { getAllBookings } from "../../store/booking";
 
-const Explore = ({ location }) => {
+const Explore = () => {
   const dispatch = useDispatch();
-  const bookings = useSelector((state) => state?.allBookings);
+  const bookings = useSelector((state) => state?.booking?.listOfBookings);
   const sessionUser = useSelector((state) => state?.session?.user);
 
-
   const mapStyles = {
-    height: "510px",
+    height: "100%",
     width: "100%",
   };
 
   useEffect(() => {
     dispatch(getAllBookings(bookings));
-  }, [bookings]);
+  }, []);
+
+  const defaultLocation = {
+    lat: 37.0902,
+    lng: 180 + 95.7129,
+  };
 
   return (
-    <LoadScript googleMapsApiKey={process.env.REACT_APP_GMAPIKEY}>
-      {location && (
-        <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={location}>
-          <Marker position={location} />
-        </GoogleMap>
-      )}
-    </LoadScript>
+    <div className="explorerContainer">
+      <div className="map">
+        <LoadScript googleMapsApiKey={process.env.REACT_APP_GMAPIKEY}>
+          {defaultLocation && (
+            <GoogleMap
+              mapContainerStyle={mapStyles}
+              center={defaultLocation}
+              // onCenterChanged={() => {
+              //   console.log("center change");
+              // }}
+              zoom={10}
+            >
+              {bookings.map((booking, idx) => (
+                <Marker
+                  position={{ lat: booking.lat, lng: booking.lng }}
+                  key={idx}
+                />
+              ))}
+            </GoogleMap>
+          )}
+        </LoadScript>
+      </div>
+      <div className="rightHalfOfPage">
+        <div></div>
+      </div>
+    </div>
   );
 };
 

@@ -1,0 +1,22 @@
+body {
+  color: white;
+}
+
+.explorerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.map {
+  color: white;
+  border: 1px solid white;
+  height: 100vh;
+  width: 50%;
+}
+
+.rightHalfOfPage {
+  height: calc(100vh - 50px);
+  width: 50%;
+  border: 1px solid white;
+}

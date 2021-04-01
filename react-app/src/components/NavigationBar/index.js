@@ -6,16 +6,15 @@ import { useHistory } from "react-router-dom";
 import "./navbar.css";
 
 const NavBar = ({ authenticated, setAuthenticated }) => {
-  const history = useHistory();
   const sessionUser = useSelector((state) => state?.session?.user);
-  const [] = useState(false);
 
   return authenticated ? (
     <nav className="navBarContainer">
       <ul className="topNavBarLinks">
-        <div className="homeLogo" onClick={() => history.push("/")}>
+        <div className="homeLogo">
           <h2>KappaBnB </h2>
         </div>
+
         <li>
           <NavLink to="/" exact={true} activeClassName="active">
             Home

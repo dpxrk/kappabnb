@@ -206,3 +206,14 @@
 .login {
   color: white;
 }
+
+.logout {
+  background-image: url("https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-round-1/254000/59-128.png");
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
