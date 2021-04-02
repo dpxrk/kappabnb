@@ -20,7 +20,7 @@ class Booking(db.Model):
   pictures = db.relationship("Picture", backref='bookings')
   state = db.relationship('State', backref='states')
   user = db.relationship('User', backref='bookings')
-
+  reviews = db.relationship('Review')
 
 
 
@@ -29,6 +29,7 @@ class Booking(db.Model):
     state = self.state.stateName
     userFullName = self.user.fullName
     capital = self.state.capital
+    reviews = self.reviews
 
     return {
       'id': self.id,
@@ -41,5 +42,7 @@ class Booking(db.Model):
       'state' : state,
       'capitol': capital,
       "lng": float(self.lng),
-      "lat": float(self.lat)
+      "lat": float(self.lat),
+      "reviews": [review.to_dict() for review in reviews],
+      "averageReview" : sum([review.numberOfStars for review in reviews])/len(reviews)
     }

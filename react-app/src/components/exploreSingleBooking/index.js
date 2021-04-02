@@ -40,19 +40,18 @@ const ExploreSingleBooking = () => {
   }, [dispatch, id]);
 
   const defaultLocation = {
-    lat: 40.281238995065614,
-    lng: -100.17976810973792,
+    lat: booking.lat,
+    lng: booking.lng,
   };
 
   const handleMarkerClick = (e, id) => {
-    // e.preventDefault();
-    // history.push(`/explore/${id}`);
+    history.push(`/explore/${id}`);
   };
 
   const handleReservationSubmit = (e) => {
     e.preventDefault();
     if (
-      reservationDates[0].starteDate === null ||
+      reservationDates[0].startDate === null ||
       reservationDates[0].endDate === null
     ) {
       alert("Please enter valid dates for your trip.");
@@ -80,13 +79,13 @@ const ExploreSingleBooking = () => {
               // onCenterChanged={() => {
               //   console.log("center change");
               // }}
-              zoom={5}
+              zoom={15}
             >
               {bookings.map((booking, idx) => (
                 <Marker
                   position={{ lat: booking.lat, lng: booking.lng }}
                   key={idx}
-                  onClick={handleMarkerClick(booking.id)}
+                  onClick={(e) => handleMarkerClick(e, booking.id)}
                 />
               ))}
             </GoogleMap>
@@ -101,6 +100,7 @@ const ExploreSingleBooking = () => {
               Welcome to {booking.title} in {booking.state} hosted by:{" "}
               {booking.userId}{" "}
             </h2>
+            <hr className="bottomLineUnderTitle" />
           </div>
           <div className="bookingLocation">
             <h3>
@@ -113,18 +113,26 @@ const ExploreSingleBooking = () => {
             <h4> {booking.description}</h4>
           </div>
           <div className="reviews">
-            Check out some reviews which have an average of:
-            {booking?.reviews?.forEach((review) => (
-              <div>{review} </div>
+            Check out some reviews which have an average of:{" "}
+            {booking.averageReview}
+            {booking?.reviews?.map((review) => (
+              <div>
+                <div>{review.content} </div>
+                <div> {review.numberOfStars} </div>
+              </div>
             ))}
           </div>
           <div>
-            <h3> Here are some beautiful photos for you to check out! </h3>{" "}
-            {booking?.pictures?.forEach((picture) => (
-              <div key={picture.id}>
-                <img src={picture} alt="" />
-              </div>
-            ))}
+            <div className="pictureContainerTitle">
+              <h3> Here are some beautiful photos for you to check out! </h3>{" "}
+            </div>
+            <div className="pictureContainer">
+              {booking?.pictures?.map((picture) => (
+                <div key={picture.id}>
+                  <img src={picture} alt="" className="pictures" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className="bookingFormContainer">
@@ -139,7 +147,7 @@ const ExploreSingleBooking = () => {
                   editableDateInputs={true}
                   onChange={(dates) => setReservationDates([dates.selection])}
                   moveRangeOnFirstSelection={false}
-                  reservationDates={reservationDates}
+                  ranges={reservationDates}
                 />
               </div>
               <div>
