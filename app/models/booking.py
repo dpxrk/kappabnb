@@ -28,6 +28,7 @@ class Booking(db.Model):
   def to_dict(self):
     state = self.state.stateName
     userFullName = self.user.fullName
+    capital = self.state.capital
 
     return {
       'id': self.id,
@@ -38,6 +39,7 @@ class Booking(db.Model):
       'address' : self.address,
       'pictures': [picture.photoURL for picture in self.pictures],
       'state' : state,
-      "lng": self.lng,
-      "lat": self.lat,
+      'capitol': capital,
+      "lng": float(self.lng),
+      "lat": float(self.lat)
     }

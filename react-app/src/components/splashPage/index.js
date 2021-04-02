@@ -1,16 +1,67 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./splashpage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { getAllBookings } from "../../store/booking";
 
 const SplashPage = () => {
-  // const dispatch = useDispatch();
-  // const session = useSelector((state) => state.session);
-  // const history = useHistory();
+  const dispatch = useDispatch();
+  const bookings = useSelector((state) => state?.allBookings);
+
+  useEffect(() => {
+    dispatch(getAllBookings(bookings));
+  }, [bookings]);
 
   return (
     <div className="entireBackGround">
       <div className="blackBar">
+        {/* <div className="searchBarContainer">
+          <form action="/" method="get">
+            <div className="searchBarItems">
+              <div className="locationContainer">
+                <div className="location"> Location </div>
+                <input
+                  className="searchItems"
+                  type="text"
+                  placeholder="Where are you going?"
+                  name="search"
+                />
+              </div>
+              <div className="checkinContainer">
+                <div className="checkIn"> Check In </div>
+                <input
+                  className="searchItems"
+                  type="text"
+                  placeholder="Add Dates"
+                  name="search"
+                />
+              </div>
+              <div className="checkoutContainer">
+                <div className="checkOut"> Check Out </div>
+                <input
+                  className="searchItems"
+                  type="text"
+                  placeholder="Add Dates"
+                  name="search"
+                />
+              </div>
+              <div className="guestContainer">
+                <div className="guests"> Guests </div>
+                <input
+                  className="searchItems"
+                  type="text"
+                  placeholder="Add Guests"
+                  name="search"
+                />
+              </div>
+              <div className="searchContainer">
+                <button className="search" type="submit">
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+        </div> */}
         <div className="landingPage">
           <img
             alt="capitalBackGroundPhoto"
@@ -50,7 +101,7 @@ const SplashPage = () => {
             <h1>Your state capital is worth sharing</h1>
             <h4>
               Turn your extra
-              <span>space</span>
+              <span> space </span>
               into your next
               <span> opportunity.</span>
             </h4>
@@ -64,9 +115,11 @@ const SplashPage = () => {
                 {" "}
                 <ul className="contactList">
                   Want to get in contact with me?
-                  <li>LinkedIn:</li>
-                  <li>Angellist:</li>
-                  <li>Github:</li>
+                  <a href="https://www.linkedin.com/in/danielpark0503/">
+                    LinkedIn
+                  </a>
+                  <a href="https://angel.co/u/daniel-park-70">Angellist</a>
+                  <a href="https://github.com/dpxrk">Github</a>
                 </ul>
               </section>
             </div>

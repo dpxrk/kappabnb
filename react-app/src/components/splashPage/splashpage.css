@@ -40,6 +40,7 @@ body {
   font-size: 32px;
   font-family: "Nunito Sans";
   margin-left: 80px;
+  color: white;
 }
 
 .differentCapitalBuildings > img {
@@ -135,4 +136,62 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+h2 {
+  font-family: "Nunito Sans";
+  color: white;
+}
+
+.searchBarItems {
+  font-family: "Nunito Sans";
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.locationContainer {
+  border-radius: 5px;
+}
+
+.searchBarItemsTitle {
+  color: white;
+  font-family: "Nunito Sans";
+  display: flex;
+  flex-direction: row;
+}
+
+.location {
+  font-family: "Nunito Sans";
+  color: black;
+  background: white;
+}
+
+.searchItems {
+  outline: none;
+  background-color: white;
+  padding: 0;
+  border: 0;
+}
+
+.checkIn {
+  font-family: "Nunito Sans";
+  color: black;
+  background: white;
+}
+.checkOut {
+  font-family: "Nunito Sans";
+  color: black;
+  background: white;
+}
+.search {
+  font-family: "Nunito Sans";
+  color: black;
+  background: white;
+}
+
+.guests {
+  font-family: "Nunito Sans";
+  color: black;
+  background: white;
 }

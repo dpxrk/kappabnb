@@ -9,7 +9,6 @@ const loadBookings = (bookings) => {
 
 export const getAllBookings = () => async (dispatch) => {
   const response = await fetch(`/api/bookings`);
-
   if (response.ok) {
     const data = await response.json();
     dispatch(loadBookings(data));
@@ -17,7 +16,17 @@ export const getAllBookings = () => async (dispatch) => {
   }
 };
 
-const initialState = [];
+export const getSingleBooking = async (id) => {
+  const response = await fetch(`/api/bookings/${id}`, {
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+  const data = await response.json();
+  return data;
+};
+
+const initialState = { listOfBookings: [] };
 
 const bookingReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -27,7 +36,7 @@ const bookingReducer = (state = initialState, action) => {
         allBookings.push(booking);
       });
       return {
-        allBookings,
+        listOfBookings: allBookings,
       };
     default:
       return state;

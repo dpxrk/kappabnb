@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import "./navbar.css";
 
 const NavBar = ({ authenticated, setAuthenticated }) => {
   const sessionUser = useSelector((state) => state?.session?.user);
-  console.log("THIS IS THE SESSION USER", sessionUser);
 
   return authenticated ? (
     <nav className="navBarContainer">
       <ul className="topNavBarLinks">
+        <div className="homeLogo">
+          <h2>KappaBnB </h2>
+        </div>
+
         <li>
           <NavLink to="/" exact={true} activeClassName="active">
             Home

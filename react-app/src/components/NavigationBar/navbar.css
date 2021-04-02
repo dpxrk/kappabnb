@@ -60,3 +60,8 @@ li a:hover {
   height: 50px;
   border-radius: 50%;
 }
+
+.homeLogo {
+  align-items: center;
+  justify-content: left;
+}

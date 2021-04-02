@@ -23,7 +23,7 @@ export const reserveBooking = (userId, bookingId, startDate, endDate) => async (
   });
 
   const data = await response.json();
-
+  dispatch(addReservation(data));
   return data;
 };
 

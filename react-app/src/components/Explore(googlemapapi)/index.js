@@ -1,38 +1,66 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  GoogleMap,
-  useJsApiLoader,
-  LoadScript,
-  Marker,
-} from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import "./explore.css";
+import { useHistory, Redirect } from "react-router-dom";
 
 import { getAllBookings } from "../../store/booking";
 
-const Explore = ({ location, authenticated }) => {
+const Explore = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
-  const bookings = useSelector((state) => state?.allBookings);
-  const sessionUser = useSelector((state) => state?.session?.user);
+  const bookings = useSelector((state) => state.booking.listOfBookings);
 
-  console.log("THIS IS SESSION USER", sessionUser);
   const mapStyles = {
-    height: "510px",
+    height: "100%",
     width: "100%",
   };
 
   useEffect(() => {
-    dispatch(getAllBookings());
-  });
+    dispatch(getAllBookings(bookings));
+  }, [dispatch]);
 
-  // return (
-  //   // <LoadScript googleMapsApiKey={process.env.REACT_APP_GMAPIKEY}>
-  //   //   {location && (
-  //   //     <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={location}>
-  //   //       <Marker position={location} />
-  //   //     </GoogleMap>
-  //   //   )}
-  //   // </LoadScript>
-  // );
+  const defaultLocation = {
+    lat: 40.281238995065614,
+    lng: -100.17976810973792,
+  };
+
+  const handleMarkerClick = (e, id) => {
+    // return <Redirect to={`/explore/${id}`} />;
+    // history.push(`/explore/${id}`);
+  };
+
+  return (
+    <div className="explorerContainer">
+      <div className="map">
+        <LoadScript googleMapsApiKey={process.env.REACT_APP_GMAPIKEY}>
+          {defaultLocation && (
+            <GoogleMap
+              mapContainerStyle={mapStyles}
+              center={defaultLocation}
+              // onCenterChanged={() => {
+              //   console.log("center change");
+              // }}
+              zoom={5}
+            >
+              {bookings.map((booking, idx) => (
+                <Marker
+                  position={{ lat: booking.lat, lng: booking.lng }}
+                  key={idx}
+                  onClick={handleMarkerClick(booking.id)}
+                />
+              ))}
+            </GoogleMap>
+          )}
+        </LoadScript>
+      </div>
+      <div className="rightHalfOfPage">
+        <div className="centerContainer">
+          <div className="centerText"> Click on a City!</div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Explore;
