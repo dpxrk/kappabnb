@@ -30,7 +30,7 @@ def getOneReservation(id):
 def createNewReservation():
   form = ReservationForm()
 
-  new_reserve = ReservationForm(
+  new_reserve = Reservation(
     userId = form.data['userId'],
     bookingId = form.data['bookingId'],
     startDate = form.data['startDate'],

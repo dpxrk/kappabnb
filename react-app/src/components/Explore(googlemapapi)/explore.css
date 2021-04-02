@@ -20,14 +20,22 @@ body {
   width: 50%;
   border: 1px solid white;
   display: flex;
+
+  align-items: center;
+  flex-direction: column;
 }
 
 .centerContainer {
   display: flex;
   text-align: center;
+  margin-top: 50vh;
+  font-size: 40px;
+  font-family: "Nunito Sans";
 }
 
 .centertext {
   display: flex;
   font-family: "Nunito Sans";
+  align-self: center;
+  padding-top: 100px;
 }

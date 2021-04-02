@@ -12,16 +12,26 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
     <nav className="navBarContainer">
       <ul className="topNavBarLinks">
         <div className="homeLogo">
-          <h2>KappaBnB </h2>
+          <i class="fab fa-airbnb" /> <span> KappaBnB</span>
         </div>
 
         <li>
-          <NavLink to="/" exact={true} activeClassName="active">
+          <NavLink
+            to="/"
+            exact={true}
+            activeClassName="active"
+            className="links"
+          >
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to="/explore" exact={true} activeClassName="active">
+          <NavLink
+            to="/explore"
+            exact={true}
+            activeClassName="active"
+            className="links"
+          >
             Explore
           </NavLink>
         </li>

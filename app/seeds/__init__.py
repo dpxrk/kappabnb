@@ -20,7 +20,7 @@ def seed():
     seed_pictures()
     seed_reviews()
     seed_amenities()
-    # seed_bookingsAmenities()  <-- Need to fix onjoining the table insert
+    # seed_bookingsAmenities()
     # Add other seed functions here
 
 # Creates the `flask seed undo` command
@@ -32,5 +32,5 @@ def undo():
     undo_pictures()
     undo_bookings()
     undo_amenities()
-    # undo_bookingsAmenities() <-- need to fix on joining the table table
+    # undo_bookingsAmenities()
     # Add other undo functions here

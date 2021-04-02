@@ -4,14 +4,25 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import "./exploreSingleBooking.css";
 import { useParams, useHistory } from "react-router-dom";
 import { getSingleBooking, getAllBookings } from "../../store/booking";
+import { DateRange } from "react-date-range";
+import { reserveBooking } from "../../store/reservation";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
 const ExploreSingleBooking = () => {
   const history = useHistory();
   const { id } = useParams();
   const [booking, setBooking] = useState({});
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state?.session?.user);
   const bookings = useSelector((state) => state.booking.listOfBookings);
-  // const [bookingIsClickedOn, setBookingIsClickedOn] = useState("false");
+  const [reservationDates, setReservationDates] = useState([
+    {
+      start: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
 
   const mapStyles = {
     height: "100%",
@@ -29,15 +40,33 @@ const ExploreSingleBooking = () => {
   }, [dispatch, id]);
 
   const defaultLocation = {
-    lat: 40.281238995065614,
-    lng: -100.17976810973792,
+    lat: booking.lat,
+    lng: booking.lng,
   };
 
   const handleMarkerClick = (e, id) => {
-    // history.push(`/explore/${id}`);
+    history.push(`/explore/${id}`);
   };
 
-  console.log("this is the current booking", booking);
+  const handleReservationSubmit = (e) => {
+    e.preventDefault();
+    if (
+      reservationDates[0].startDate === null ||
+      reservationDates[0].endDate === null
+    ) {
+      alert("Please enter valid dates for your trip.");
+    } else {
+      dispatch(
+        reserveBooking(
+          sessionUser.id,
+          booking.id,
+          reservationDates[0].startDate,
+          reservationDates[0].endDate
+        )
+      );
+    }
+  };
+  const today = new Date();
   return (
     <div className="explorerContainer">
       <div className="map">
@@ -49,49 +78,90 @@ const ExploreSingleBooking = () => {
               // onCenterChanged={() => {
               //   console.log("center change");
               // }}
-              zoom={5}
+              zoom={15}
             >
               {bookings.map((booking, idx) => (
                 <Marker
                   position={{ lat: booking.lat, lng: booking.lng }}
                   key={idx}
-                  onClick={handleMarkerClick(booking.id)}
+                  onClick={(e) => handleMarkerClick(e, booking.id)}
                 />
               ))}
             </GoogleMap>
           )}
         </LoadScript>
       </div>
-      <div className="rightHalfOfPage">
-        <div className="centerContainer">
-          <div>
-            {" "}
-            Welcome to <span className="bookingTitle">
-              {booking.title}{" "}
-            </span> in <span className="bookingState">{booking.state} </span>
+      <div className="rightHalfOfPage1">
+        <div className="bookingContainer">
+          <div className="bookingTitle">
+            <h2>
+              {" "}
+              Welcome to {booking.title} in {booking.state} hosted by{" "}
+              {booking.userId}{" "}
+            </h2>
+            <hr className="bottomLineUnderTitle" />
           </div>
-          <div> </div>
-          <div> Here are some beautiful photos for you to check out! </div>
+          <div className="bookingLocation">
+            <h3>
+              The address to this location is&nbsp;<span> </span>
+              {booking.address}, {booking.capitol}&nbsp;{booking.state}
+            </h3>
+          </div>
           <div>
-            {" "}
-            {booking?.pictures?.forEach((picture) => (
-              <img src={picture} alt="">
-                {" "}
-                PHOTOS
-              </img>
+            <hr className="bottomLineAddress" />
+            <div className="pictureContainerTitle">
+              <h3> Here are some beautiful photos for you to check out </h3>{" "}
+            </div>
+            <div className="pictureContainer">
+              {booking?.pictures?.map((picture) => (
+                <div key={picture.id}>
+                  <img src={picture} alt="" className="pictures" />
+                </div>
+              ))}
+            </div>
+          </div>
+          <hr className="bottomLinePictures" />
+          <div className="descriptionContainer">
+            <h3> Description </h3>
+            <h4> {booking.description}</h4>
+          </div>
+
+          <div className="bookingFormContainer">
+            <div className="bookingForm">
+              <form
+                onSubmit={(e) => handleReservationSubmit(e)}
+                className="bookingForm"
+              >
+                <div className="bookingFormTitle">
+                  <h2>${booking.price}/night </h2>
+                </div>
+                <div className="bookingFormCalendar">
+                  <DateRange
+                    minDate={today}
+                    editableDateInputs={true}
+                    onChange={(dates) => setReservationDates([dates.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={reservationDates}
+                  />
+                </div>
+                <div>
+                  <button type="submit" className="bookingFormButton">
+                    Book the capitol building
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="reviews">
+            Check out some reviews which have an average of:{" "}
+            {booking.averageReview}
+            {booking?.reviews?.map((review) => (
+              <div className="reviewContent" key={review.id}>
+                <div>{review.content} </div>
+                <div>{review.numberOfStars} </div>
+              </div>
             ))}
           </div>
-          <div>
-            The address to this location is: {booking.address}, {booking.state}{" "}
-            {booking.capital}
-          </div>
-          <div>
-            Check out some reviews which have an average of:
-            {booking?.reviews?.forEach((review) => (
-              <div>{review} </div>
-            ))}
-          </div>
-          <div>The host is: {booking.userId}</div>
         </div>
       </div>
     </div>

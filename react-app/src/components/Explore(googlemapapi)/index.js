@@ -27,7 +27,8 @@ const Explore = () => {
 
   const handleMarkerClick = (e, id) => {
     // return <Redirect to={`/explore/${id}`} />;
-    // history.push(`/explore/${id}`);
+
+    history.push(`/explore/${id}`);
   };
 
   return (
@@ -47,7 +48,7 @@ const Explore = () => {
                 <Marker
                   position={{ lat: booking.lat, lng: booking.lng }}
                   key={idx}
-                  onClick={handleMarkerClick(booking.id)}
+                  onClick={(e) => handleMarkerClick(e, booking.id)}
                 />
               ))}
             </GoogleMap>
