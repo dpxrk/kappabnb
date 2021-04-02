@@ -93,26 +93,25 @@ const ExploreSingleBooking = () => {
           )}
         </LoadScript>
       </div>
-      <div className="rightHalfOfPage">
-        <div className="centerContainer">
-          <h2>
-            {" "}
-            Welcome to <span className="bookingTitle">
-              {booking.title}{" "}
-            </span> in{" "}
-            <span className="bookingState">
-              {booking.state} hosted by: {booking.userId}{" "}
-            </span>
-          </h2>
-          <div> </div>
-          <h3>
-            The address to this location is: {booking.address}, {booking.state}{" "}
-            {booking.capital}
-          </h3>
-          <div className="descriptionContainer">
-            <h4>Description:{booking.description}</h4>
+      <div className="rightHalfOfPage1">
+        <div className="bookingContainer">
+          <div className="bookingTitle">
+            <h2>
+              {" "}
+              Welcome to {booking.title} in {booking.state} hosted by:{" "}
+              {booking.userId}{" "}
+            </h2>
           </div>
-          <div>
+          <div className="bookingLocation">
+            <h3>
+              The address to this location is: <span>{booking.address}, </span>
+              {booking.state} {booking.capital}
+            </h3>
+          </div>
+          <div className="descriptionContainer">
+            <h4>Description: {booking.description}</h4>
+          </div>
+          <div className="reviews">
             Check out some reviews which have an average of:
             {booking?.reviews?.forEach((review) => (
               <div>{review} </div>
