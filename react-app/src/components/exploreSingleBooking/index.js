@@ -68,7 +68,7 @@ const ExploreSingleBooking = () => {
     }
   };
   const today = new Date();
-  console.log("this is the current booking", booking.pictures);
+  console.log("this is the current booking", booking);
   return (
     <div className="explorerContainer">
       <div className="map">
@@ -104,12 +104,13 @@ const ExploreSingleBooking = () => {
           </div>
           <div className="bookingLocation">
             <h3>
-              The address to this location is: <span>{booking.address}, </span>
-              {booking.state} {booking.capital}
+              The address to this location is&nbsp;<span> </span>
+              {booking.address}, {booking.capitol}&nbsp;{booking.state}
             </h3>
           </div>
           <div className="descriptionContainer">
-            <h4>Description: {booking.description}</h4>
+            <h3> Description: </h3>
+            <h4> {booking.description}</h4>
           </div>
           <div className="reviews">
             Check out some reviews which have an average of:
