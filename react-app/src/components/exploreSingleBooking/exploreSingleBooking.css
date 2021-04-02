@@ -24,10 +24,21 @@ body {
 
 .centerContainer {
   display: flex;
-  text-align: center;
+  flex-direction: column;
 }
 
 .centertext {
   display: flex;
   font-family: "Nunito Sans";
+}
+
+.bookingFormContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
 }

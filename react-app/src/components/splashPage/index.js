@@ -105,7 +105,7 @@ const SplashPage = () => {
               into your next
               <span> opportunity.</span>
             </h4>
-            <button>Become a Host</button>
+            {/* <button>Become a Host</button> */}
           </div>
         </div>
         <div className="footerContainer">

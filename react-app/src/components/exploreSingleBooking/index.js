@@ -105,32 +105,34 @@ const ExploreSingleBooking = () => {
             </span>
           </h2>
           <div> </div>
-          <h3> Here are some beautiful photos for you to check out! </h3>
-          <div>
-            {" "}
-            {booking?.pictures?.forEach((picture) => (
-              <div key={picture.id}>
-                <img src={picture} alt="" />
-              </div>
-            ))}
-          </div>
           <h3>
             The address to this location is: {booking.address}, {booking.state}{" "}
             {booking.capital}
           </h3>
-          <h4>{booking.description}</h4>
+          <div className="descriptionContainer">
+            <h4>Description:{booking.description}</h4>
+          </div>
           <div>
             Check out some reviews which have an average of:
             {booking?.reviews?.forEach((review) => (
               <div>{review} </div>
             ))}
           </div>
+          <div>
+            <h3> Here are some beautiful photos for you to check out! </h3>{" "}
+            {booking?.pictures?.forEach((picture) => (
+              <div key={picture.id}>
+                <img src={picture} alt="" />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="bookingFormContainer">
           <div className="bookingForm">
             <form onSubmit={(e) => handleReservationSubmit(e)}>
               <div className="bookingFormTitle">
                 <h2>${booking.price}/night </h2>
               </div>
-
               <div className="bookingFormCalendar">
                 <DateRange
                   minDate={today}
