@@ -16,6 +16,16 @@ export const getAllBookings = () => async (dispatch) => {
   }
 };
 
+export const getSingleBooking = async (id) => {
+  const response = await fetch(`/api/bookings/${id}`, {
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+  const data = await response.json();
+  return data;
+};
+
 const initialState = { listOfBookings: [] };
 
 const bookingReducer = (state = initialState, action) => {

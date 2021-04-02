@@ -115,9 +115,11 @@ const SplashPage = () => {
                 {" "}
                 <ul className="contactList">
                   Want to get in contact with me?
-                  <li>LinkedIn:</li>
-                  <li>Angellist:</li>
-                  <li>Github:</li>
+                  <a href="https://www.linkedin.com/in/danielpark0503/">
+                    LinkedIn
+                  </a>
+                  <a href="https://angel.co/u/daniel-park-70">Angellist</a>
+                  <a href="https://github.com/dpxrk">Github</a>
                 </ul>
               </section>
             </div>

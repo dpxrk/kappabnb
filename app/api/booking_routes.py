@@ -6,7 +6,7 @@ booking_routes = Blueprint("bookings", __name__)
 
 
 #get all booking_routes
-@booking_routes.route('/')
+@booking_routes.route('')
 def allBookings():
   bookings = Booking.query.all()
   return {"bookings" : [booking.to_dict() for booking in bookings]}

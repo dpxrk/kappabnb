@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import "./explore.css";
+import { useHistory, Redirect } from "react-router-dom";
 
 import { getAllBookings } from "../../store/booking";
 
 const Explore = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
-  const bookings = useSelector((state) => state?.booking?.listOfBookings);
-  const sessionUser = useSelector((state) => state?.session?.user);
+  const bookings = useSelector((state) => state.booking.listOfBookings);
 
   const mapStyles = {
     height: "100%",
@@ -17,11 +18,16 @@ const Explore = () => {
 
   useEffect(() => {
     dispatch(getAllBookings(bookings));
-  }, []);
+  }, [dispatch]);
 
   const defaultLocation = {
-    lat: 37.0902,
-    lng: 180 + 95.7129,
+    lat: 40.281238995065614,
+    lng: -100.17976810973792,
+  };
+
+  const handleMarkerClick = (e, id) => {
+    // return <Redirect to={`/explore/${id}`} />;
+    // history.push(`/explore/${id}`);
   };
 
   return (
@@ -41,6 +47,7 @@ const Explore = () => {
                 <Marker
                   position={{ lat: booking.lat, lng: booking.lng }}
                   key={idx}
+                  onClick={handleMarkerClick(booking.id)}
                 />
               ))}
             </GoogleMap>
@@ -48,7 +55,9 @@ const Explore = () => {
         </LoadScript>
       </div>
       <div className="rightHalfOfPage">
-        <div className='Center'>Click on a city!</div>
+        <div className="centerContainer">
+          <div className="centerText"> Click on a City!</div>
+        </div>
       </div>
     </div>
   );

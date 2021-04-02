@@ -8,6 +8,7 @@ import { authenticate, restoreUser } from "./store/auth";
 import SplashPage from "./components/splashPage";
 import Explore from "./components/Explore(googlemapapi)";
 import { useDispatch } from "react-redux";
+import ExploreSingleBooking from "./components/exploreSingleBooking";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function App() {
       }
       setLoaded(true);
     })();
-  }, []);
+  }, [dispatch]);
 
   if (!loaded) {
     return null;
@@ -52,6 +53,13 @@ function App() {
           setAutheenticated={setAuthenticated}
         >
           <Explore />
+        </ProtectedRoute>
+        <ProtectedRoute
+          path="/explore/:id"
+          exact={true}
+          authenticated={authenticated}
+        >
+          <ExploreSingleBooking />
         </ProtectedRoute>
         <Route path="/sign-up" exact={true}>
           <SignUpForm
