@@ -134,7 +134,7 @@ const ExploreSingleBooking = () => {
                 className="bookingForm"
               >
                 <div className="bookingFormTitle">
-                  <h2>${booking.price} /night </h2>
+                  <h2>${booking.price}/night </h2>
                 </div>
                 <div className="bookingFormCalendar">
                   <DateRange
