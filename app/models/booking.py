@@ -21,7 +21,7 @@ class Booking(db.Model):
   state = db.relationship('State', backref='states')
   user = db.relationship('User', backref='bookings')
   reviews = db.relationship('Review')
-
+  amenities = db.relationship('Amenity', secondary=bookingsAmenitiesJoinTable, back_populates='bookings')
 
 
 

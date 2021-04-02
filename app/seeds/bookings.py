@@ -1,8 +1,10 @@
-from app.models import db, Booking
+from app.models import db, Booking, Amenity
 import random
 
 
 def seed_bookings():
+
+
   alabamaBooking = Booking(
     title='Modern House',
     userId=(random.randrange(1,12)),
@@ -131,6 +133,7 @@ def seed_bookings():
     description="Shops, national parks, and night clubs in Boise will make this a vacation to remember, and my glamorous 6-bedroom cottage comes complete with hot tub, private bathroom, and kitchen. The a dryer, Wi-Fi, and a bike will make you wish you could stay even longer. If you rent my Airbnb, I know you'll have a great stay in Boise.",
     address="700 W Jefferson St.",
     stateId=12,
+
     lat=43.6179303200972,
     lng=-116.19917517917337
   )
@@ -560,56 +563,103 @@ def seed_bookings():
     lng=-104.81954591048232
   )
 
-  db.session.add(alabamaBooking)
-  db.session.add(alaskaBooking)
-  db.session.add(arizonaBooking)
-  db.session.add(arkansasBooking)
-  db.session.add(californiaBooking)
-  db.session.add(coloradoBooking)
-  db.session.add(connecticutBooking)
-  db.session.add(delawareBooking)
-  db.session.add(floridaBooking)
-  db.session.add(georgiaBooking)
-  db.session.add(hawaiiBooking)
-  db.session.add(idahoBooking)
-  db.session.add(illinoisBooking)
-  db.session.add(indianaBooking)
-  db.session.add(iowaBooking)
-  db.session.add(kansasBooking)
-  db.session.add(kentuckyBooking)
-  db.session.add(louisianaBooking)
-  db.session.add(maineBooking)
-  db.session.add(marylandBooking)
-  db.session.add(massachusettsBooking)
-  db.session.add(michiganBooking)
-  db.session.add(minnesotaBooking)
-  db.session.add(mississippiBooking)
-  db.session.add(missouriBooking)
-  db.session.add(montanaBooking)
-  db.session.add(nebraksaBooking)
-  db.session.add(nevadaBooking)
-  db.session.add(newHampshireBooking)
-  db.session.add(newJerseyBooking)
-  db.session.add(newMexicoBooking)
-  db.session.add(newYorkBooking)
-  db.session.add(northCarolinaBooking)
-  db.session.add(northDakotaBooking)
-  db.session.add(ohioBooking)
-  db.session.add(oklahomaBooking)
-  db.session.add(oregonBooking)
-  db.session.add(pennsylvaniaBooking)
-  db.session.add(rhodeIslandBooking)
-  db.session.add(southCarolinaBooking)
-  db.session.add(southDakotaBooking)
-  db.session.add(tennesseeBooking)
-  db.session.add(texasBooking)
-  db.session.add(utahBooking)
-  db.session.add(vermontBooking)
-  db.session.add(virginiaBooking)
-  db.session.add(washingtonBooking)
-  db.session.add(westVirginiaBooking)
-  db.session.add(wisconsinBooking)
-  db.session.add(wyomingBooking)
+
+  heating = Amenity(amenity='Heating')
+  AC = Amenity(amenity='Air-conditioning')
+  washer = Amenity(amenity='Washer')
+  dryer = Amenity(amenity='Dryer')
+  wifi = Amenity(amenity='Wi-fi')
+  netflix = Amenity(amenity='Netflix')
+  roku = Amenity(amenity='Roku TV')
+  selfCheckIn = Amenity(amenity='Self Check In')
+  freeParking = Amenity(amenity='Free Parking')
+  laptopFriendly = Amenity(amenity='Laptop-friendly Workspace')
+  freeCoffeeAndTea = Amenity(amenity='Free Coffee and Tea')
+  bike = Amenity(amenity='bike')
+  coffeeMaker = Amenity(amenity='Coffee Maker')
+  shampoo = Amenity(amenity="Shampoo")
+  conditioner = Amenity(amenity='Conditioner')
+  hairDryer = Amenity(amenity="Hair dryer")
+  iron = Amenity(amenity='iron')
+
+
+  stateList = []
+
+
+
+  db.session.add(heating)
+  db.session.add(AC)
+  db.session.add(washer)
+  db.session.add(dryer)
+  db.session.add(wifi)
+  db.session.add(netflix)
+  db.session.add(roku)
+  db.session.add(selfCheckIn)
+  db.session.add(freeParking)
+  db.session.add(laptopFriendly)
+  db.session.add(freeCoffeeAndTea)
+  db.session.add(bike)
+  db.session.add(coffeeMaker)
+  db.session.add(shampoo)
+  db.session.add(conditioner)
+  db.session.add(hairDryer)
+  db.session.add(iron)
+
+
+
+  stateList.append(alabamaBooking)
+  stateList.append(alaskaBooking)
+  stateList.append(arizonaBooking)
+  stateList.append(arkansasBooking)
+  stateList.append(californiaBooking)
+  stateList.append(coloradoBooking)
+  stateList.append(connecticutBooking)
+  stateList.append(delawareBooking)
+  stateList.append(floridaBooking)
+  stateList.append(georgiaBooking)
+  stateList.append(hawaiiBooking)
+  stateList.append(idahoBooking)
+  stateList.append(illinoisBooking)
+  stateList.append(indianaBooking)
+  stateList.append(iowaBooking)
+  stateList.append(kansasBooking)
+  stateList.append(kentuckyBooking)
+  stateList.append(louisianaBooking)
+  stateList.append(maineBooking)
+  stateList.append(marylandBooking)
+  stateList.append(massachusettsBooking)
+  stateList.append(michiganBooking)
+  stateList.append(minnesotaBooking)
+  stateList.append(mississippiBooking)
+  stateList.append(missouriBooking)
+  stateList.append(montanaBooking)
+  stateList.append(nebraksaBooking)
+  stateList.append(nevadaBooking)
+  stateList.append(newHampshireBooking)
+  stateList.append(newJerseyBooking)
+  stateList.append(newMexicoBooking)
+  stateList.append(newYorkBooking)
+  stateList.append(northCarolinaBooking)
+  stateList.append(northDakotaBooking)
+  stateList.append(ohioBooking)
+  stateList.append(oklahomaBooking)
+  stateList.append(oregonBooking)
+  stateList.append(pennsylvaniaBooking)
+  stateList.append(rhodeIslandBooking)
+  stateList.append(southCarolinaBooking)
+  stateList.append(southDakotaBooking)
+  stateList.append(tennesseeBooking)
+  stateList.append(texasBooking)
+  stateList.append(utahBooking)
+  stateList.append(vermontBooking)
+  stateList.append(virginiaBooking)
+  stateList.append(washingtonBooking)
+  stateList.append(westVirginiaBooking)
+  stateList.append(wisconsinBooking)
+  stateList.append(wyomingBooking)
+
+
+  db.session.add(stateList)
 
   db.session.commit()
 

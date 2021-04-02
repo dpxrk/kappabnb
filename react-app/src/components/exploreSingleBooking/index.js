@@ -67,7 +67,6 @@ const ExploreSingleBooking = () => {
     }
   };
   const today = new Date();
-  console.log("this is the current booking", booking);
   return (
     <div className="explorerContainer">
       <div className="map">
@@ -157,7 +156,7 @@ const ExploreSingleBooking = () => {
             Check out some reviews which have an average of:{" "}
             {booking.averageReview}
             {booking?.reviews?.map((review) => (
-              <div className="reviewContent">
+              <div className="reviewContent" key={review.id}>
                 <div>{review.content} </div>
                 <div>{review.numberOfStars} </div>
               </div>

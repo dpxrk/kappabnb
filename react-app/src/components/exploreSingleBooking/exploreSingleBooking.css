@@ -22,7 +22,7 @@ body {
   width: 50%;
   border: 1px solid white;
   display: flex;
-  /* overflow: hidden; */
+  overflow: scroll;
 }
 
 .bookingContainer {
