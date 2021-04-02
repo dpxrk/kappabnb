@@ -108,23 +108,10 @@ const ExploreSingleBooking = () => {
               {booking.address}, {booking.capitol}&nbsp;{booking.state}
             </h3>
           </div>
-          <div className="descriptionContainer">
-            <h3> Description: </h3>
-            <h4> {booking.description}</h4>
-          </div>
-          <div className="reviews">
-            Check out some reviews which have an average of:{" "}
-            {booking.averageReview}
-            {booking?.reviews?.map((review) => (
-              <div>
-                <div>{review.content} </div>
-                <div> {review.numberOfStars} </div>
-              </div>
-            ))}
-          </div>
           <div>
+            <hr className="bottomLineAddress" />
             <div className="pictureContainerTitle">
-              <h3> Here are some beautiful photos for you to check out! </h3>{" "}
+              <h3> Here are some beautiful photos for you to check out </h3>{" "}
             </div>
             <div className="pictureContainer">
               {booking?.pictures?.map((picture) => (
@@ -134,28 +121,47 @@ const ExploreSingleBooking = () => {
               ))}
             </div>
           </div>
-        </div>
-        <div className="bookingFormContainer">
-          <div className="bookingForm">
-            <form onSubmit={(e) => handleReservationSubmit(e)}>
-              <div className="bookingFormTitle">
-                <h2>${booking.price}/night </h2>
+          <hr className="bottomLinePictures" />
+          <div className="descriptionContainer">
+            <h3> Description </h3>
+            <h4> {booking.description}</h4>
+          </div>
+
+          <div className="bookingFormContainer">
+            <div className="bookingForm">
+              <form
+                onSubmit={(e) => handleReservationSubmit(e)}
+                className="bookingForm"
+              >
+                <div className="bookingFormTitle">
+                  <h2>${booking.price}/night </h2>
+                </div>
+                <div className="bookingFormCalendar">
+                  <DateRange
+                    minDate={today}
+                    editableDateInputs={true}
+                    onChange={(dates) => setReservationDates([dates.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={reservationDates}
+                  />
+                </div>
+                <div>
+                  <button type="submit" className="bookingFormButton">
+                    Book the capitol building
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="reviews">
+            Check out some reviews which have an average of:{" "}
+            {booking.averageReview}
+            {booking?.reviews?.map((review) => (
+              <div className="reviewContent">
+                <div>{review.content} </div>
+                <div> {review.numberOfStars} </div>
               </div>
-              <div className="bookingFormCalendar">
-                <DateRange
-                  minDate={today}
-                  editableDateInputs={true}
-                  onChange={(dates) => setReservationDates([dates.selection])}
-                  moveRangeOnFirstSelection={false}
-                  ranges={reservationDates}
-                />
-              </div>
-              <div>
-                <button type="submit" className="bookingFormButton">
-                  Book the capitol building
-                </button>
-              </div>
-            </form>
+            ))}
           </div>
         </div>
       </div>

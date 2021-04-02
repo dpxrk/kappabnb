@@ -43,24 +43,24 @@ body {
   font-size: 36px;
 }
 
-.bottomLineUnderTitle {
-  width: 500px;
-  margin-bottom: 20px;
-  margin-top: -28px;
-  border-left: none;
-}
-
 .pictureContainer {
-  width: 100%;
+  width: 50vw;
   display: flex;
   overflow: hidden;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
+.pictureContainerTitle h3 {
+  font-size: 24px;
+  font-family: "Nunito Sans";
+  text-align: center;
+}
 .pictures {
   width: auto;
   height: auto;
-  max-height: 250px;
-  max-width: 250px;
+  max-height: 350px;
+  max-width: 275px;
 }
 
 .bookingLocation h3 {
@@ -79,23 +79,22 @@ body {
 
 .descriptionContainer h3 {
   font-family: "Nunito Sans";
-  display: flex;
-  align-items: center;
-  text-align: left;
+  text-align: center;
   margin: 0;
-  font-size: 24px;
+  font-size: 36px;
 }
+
 .descriptionContainer h4 {
   font-family: "Nunito Sans";
-  display: flex;
   align-items: center;
-  text-align: left;
+  text-align: center;
   margin: 0;
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
 .bookingFormButton {
-  width: 150px;
+  width: 333px;
   height: 42px;
   border: 1px solid #aa0006;
   margin: 0 0 3px 0;
@@ -105,4 +104,35 @@ body {
   font-size: 14px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+}
+
+.bookingFormTitle h2 {
+  display: flex;
+  align-self: center;
+}
+
+.bottomLineUnderTitle {
+  width: 800px;
+  margin-bottom: 20px;
+  margin-top: -28px;
+  border-left: none;
+}
+
+.bottomLineAddress {
+  width: 800px;
+  margin-bottom: 20px;
+  margin-top: -16px;
+  border-left: none;
+}
+
+.bottomLinePictures {
+  width: 1000px;
+}
+
+.reviews {
+  font-family: "Nunito Sans";
+}
+
+.reviewContent {
+  font-family: "Nunito Sans";
 }

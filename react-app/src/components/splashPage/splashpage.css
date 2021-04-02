@@ -68,6 +68,10 @@ body {
   margin-right: 20px;
 }
 
+.differentCapitalBuildings:hover {
+  cursor: pointer;
+}
+
 .becomeAHostContainer > img {
   height: 482px;
   width: 100%;
