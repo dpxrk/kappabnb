@@ -16,12 +16,22 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
         </div>
 
         <li>
-          <NavLink to="/" exact={true} activeClassName="active">
+          <NavLink
+            to="/"
+            exact={true}
+            activeClassName="active"
+            className="links"
+          >
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to="/explore" exact={true} activeClassName="active">
+          <NavLink
+            to="/explore"
+            exact={true}
+            activeClassName="active"
+            className="links"
+          >
             Explore
           </NavLink>
         </li>

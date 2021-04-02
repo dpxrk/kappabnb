@@ -97,7 +97,7 @@ const ExploreSingleBooking = () => {
           <div className="bookingTitle">
             <h2>
               {" "}
-              Welcome to {booking.title} in {booking.state} hosted by:{" "}
+              Welcome to {booking.title} in {booking.state} hosted by{" "}
               {booking.userId}{" "}
             </h2>
             <hr className="bottomLineUnderTitle" />
@@ -134,7 +134,7 @@ const ExploreSingleBooking = () => {
                 className="bookingForm"
               >
                 <div className="bookingFormTitle">
-                  <h2>${booking.price}/night </h2>
+                  <h2>${booking.price} /night </h2>
                 </div>
                 <div className="bookingFormCalendar">
                   <DateRange
@@ -159,7 +159,7 @@ const ExploreSingleBooking = () => {
             {booking?.reviews?.map((review) => (
               <div className="reviewContent">
                 <div>{review.content} </div>
-                <div> {review.numberOfStars} </div>
+                <div>{review.numberOfStars} </div>
               </div>
             ))}
           </div>
