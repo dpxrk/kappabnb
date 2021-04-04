@@ -18,13 +18,21 @@ const ExploreSingleBooking = () => {
   const sessionUser = useSelector((state) => state?.session?.user);
   const bookings = useSelector((state) => state.booking.listOfBookings);
   // const reviews = useSelector((state) => state?.reviews?.newReviews);
+
   const [reservationDates, setReservationDates] = useState([
     {
-      start: new Date(),
+      startDate: new Date(),
       endDate: new Date(),
       key: "selection",
     },
   ]);
+
+  console.log(reservationDates);
+  const total = Math.ceil(
+    ((reservationDates[0].endDate - reservationDates[0].startDate) *
+      booking.price) /
+      86400000
+  );
 
   const mapStyles = {
     height: "100%",
@@ -98,6 +106,9 @@ const ExploreSingleBooking = () => {
             </GoogleMap>
           )}
         </LoadScript>
+        <button type="click" className="recenter">
+          Recenter
+        </button>
       </div>
       <div className="rightHalfOfPage1">
         <div className="bookingContainer">
@@ -147,7 +158,7 @@ const ExploreSingleBooking = () => {
                   <img src={review.photo} alt="" className="reviewImage" />{" "}
                   {review.userName}{" "}
                 </div>
-                <div>{review.content} </div>
+                <div className="reviewContent">{review.content} </div>
                 <form
                   onSubmit={(e) => handleReviewSubmit(e, sessionUser.id)}
                 ></form>
@@ -176,6 +187,9 @@ const ExploreSingleBooking = () => {
                   <button type="submit" className="bookingFormButton">
                     Book the capitol building
                   </button>
+                </div>
+                <div className="bookingPrice">
+                  Your current total for booking per night is : ${total}
                 </div>
               </form>
             </div>

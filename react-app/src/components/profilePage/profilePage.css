@@ -39,3 +39,20 @@
   margin-left: 30px;
   font-size: 30px;
 }
+
+.bookingPrice {
+  font-family: "Nunito Sans";
+}
+
+.reviewImage {
+  border-radius: 5px;
+}
+
+.reviewContent {
+  margin-top: 15px;
+  font-size: 16px;
+}
+.recenter {
+  z-index: 1;
+  margin-bottom: 50px;
+}
