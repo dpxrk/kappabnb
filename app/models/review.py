@@ -13,8 +13,12 @@ class Review(db.Model):
   user = db.relationship('User', backref='reviews')
 
   def to_dict(self):
+    userFullName = self.user.fullName
+
+
     return {
       "id": self.id,
+      "userName":userFullName,
       "userId": self.userId,
       'bookingId': self.bookingId,
       'numberOfStars': self.numberOfStars,

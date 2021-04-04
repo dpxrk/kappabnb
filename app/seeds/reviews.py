@@ -16,7 +16,7 @@ def seed_reviews():
     new_review = Review(
       userId=(random.randrange(1,12)),
       bookingId=(count+1),
-      numberOfStars=(random.randrange(1, 6)),
+      numberOfStars=(random.randrange(4, 6)),
       content=reviewComments[random.randrange(0,5)]
     )
     count += 1

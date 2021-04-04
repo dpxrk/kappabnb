@@ -64,6 +64,7 @@ const ExploreSingleBooking = () => {
           reservationDates[0].endDate
         )
       );
+      alert("Your booking has been reserved!");
     }
   };
   const today = new Date();
