@@ -14,6 +14,7 @@ class Review(db.Model):
 
   def to_dict(self):
     userFullName = self.user.fullName
+    userProfilePicture = self.user.profileImage
 
 
     return {
@@ -23,4 +24,5 @@ class Review(db.Model):
       'bookingId': self.bookingId,
       'numberOfStars': self.numberOfStars,
       'content': self.content,
+      "photo" : userProfilePicture
     }

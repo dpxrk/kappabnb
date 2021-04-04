@@ -48,6 +48,10 @@ const ExploreSingleBooking = () => {
     history.push(`/explore/${id}`);
   };
 
+  const handleReviewSubmit = (e) => {
+    e.preventDefault();
+  };
+
   const handleReservationSubmit = (e) => {
     e.preventDefault();
     if (
@@ -126,7 +130,27 @@ const ExploreSingleBooking = () => {
             <h3> Description </h3>
             <h4> {booking.description}</h4>
           </div>
-
+          <hr className="bottomLineDescription" />
+          <div className="reviewsContainer">
+            <h3>
+              {" "}
+              Check out some reviews which have an average of:{" "}
+              <i class="far fa-star" /> {booking.averageReview}
+            </h3>
+            {booking?.reviews?.map((review) => (
+              <div className="reviewContent" key={review.id}>
+                <div className="reviewImageAndName">
+                  {" "}
+                  <img src={review.photo} alt="" className="reviewImage" />{" "}
+                  {review.userName}{" "}
+                </div>
+                <div>{review.content} </div>
+                <form
+                  onSubmt={(e) => handleReviewSubmit(e, sessionUser.id)}
+                ></form>
+              </div>
+            ))}
+          </div>
           <div className="bookingFormContainer">
             <div className="bookingForm">
               <form
@@ -152,16 +176,6 @@ const ExploreSingleBooking = () => {
                 </div>
               </form>
             </div>
-          </div>
-          <div className="reviews">
-            Check out some reviews which have an average of:{" "}
-            {booking.averageReview}
-            {booking?.reviews?.map((review) => (
-              <div className="reviewContent" key={review.id}>
-                <div>{review.content} </div>
-                <div>{review.numberOfStars} </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
