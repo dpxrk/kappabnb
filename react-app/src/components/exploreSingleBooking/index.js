@@ -8,6 +8,7 @@ import { DateRange } from "react-date-range";
 import { reserveBooking } from "../../store/reservation";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+// import { getAllReviews } from "../../store/review";
 
 const ExploreSingleBooking = () => {
   const history = useHistory();
@@ -16,13 +17,22 @@ const ExploreSingleBooking = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state?.session?.user);
   const bookings = useSelector((state) => state.booking.listOfBookings);
+  // const reviews = useSelector((state) => state?.reviews?.newReviews);
+
   const [reservationDates, setReservationDates] = useState([
     {
-      start: new Date(),
+      startDate: new Date(),
       endDate: new Date(),
       key: "selection",
     },
   ]);
+
+  console.log(reservationDates);
+  const total = Math.ceil(
+    ((reservationDates[0].endDate - reservationDates[0].startDate) *
+      booking.price) /
+      86400000
+  );
 
   const mapStyles = {
     height: "100%",
@@ -31,6 +41,7 @@ const ExploreSingleBooking = () => {
 
   useEffect(() => {
     dispatch(getAllBookings(bookings));
+    // dispatch(getAllReviews());
 
     const data = async () => {
       const singleBooking = await getSingleBooking(id);
@@ -46,6 +57,10 @@ const ExploreSingleBooking = () => {
 
   const handleMarkerClick = (e, id) => {
     history.push(`/explore/${id}`);
+  };
+
+  const handleReviewSubmit = (e) => {
+    e.preventDefault();
   };
 
   const handleReservationSubmit = (e) => {
@@ -64,6 +79,7 @@ const ExploreSingleBooking = () => {
           reservationDates[0].endDate
         )
       );
+      alert("Your booking has been reserved!");
     }
   };
   const today = new Date();
@@ -90,6 +106,9 @@ const ExploreSingleBooking = () => {
             </GoogleMap>
           )}
         </LoadScript>
+        <button type="click" className="recenter">
+          Recenter
+        </button>
       </div>
       <div className="rightHalfOfPage1">
         <div className="bookingContainer">
@@ -125,7 +144,27 @@ const ExploreSingleBooking = () => {
             <h3> Description </h3>
             <h4> {booking.description}</h4>
           </div>
-
+          <hr className="bottomLineDescription" />
+          <div className="reviewsContainer">
+            <h3>
+              {" "}
+              Check out some reviews which have an average of:{" "}
+              <i class="far fa-star" /> {booking.averageReview}
+            </h3>
+            {booking?.reviews?.map((review) => (
+              <div className="reviewContent" key={review.id}>
+                <div className="reviewImageAndName">
+                  {" "}
+                  <img src={review.photo} alt="" className="reviewImage" />{" "}
+                  {review.userName}{" "}
+                </div>
+                <div className="reviewContent">{review.content} </div>
+                <form
+                  onSubmit={(e) => handleReviewSubmit(e, sessionUser.id)}
+                ></form>
+              </div>
+            ))}
+          </div>
           <div className="bookingFormContainer">
             <div className="bookingForm">
               <form
@@ -149,18 +188,11 @@ const ExploreSingleBooking = () => {
                     Book the capitol building
                   </button>
                 </div>
+                <div className="bookingPrice">
+                  Your current total for booking per night is : ${total}
+                </div>
               </form>
             </div>
-          </div>
-          <div className="reviews">
-            Check out some reviews which have an average of:{" "}
-            {booking.averageReview}
-            {booking?.reviews?.map((review) => (
-              <div className="reviewContent" key={review.id}>
-                <div>{review.content} </div>
-                <div>{review.numberOfStars} </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

@@ -50,7 +50,7 @@
   color: rgb(255, 255, 255);
   margin: 0 40px 6px;
   padding: 10px;
-  width: 250px;
+  width: 260px;
 }
 
 .login-form button {
@@ -63,7 +63,7 @@
   border-radius: 4px;
   margin: 0 40px 6px;
   padding: 10px;
-  width: 272px;
+  width: 260px;
   font-family: "Nunito Sans";
 }
 
@@ -87,7 +87,7 @@
 }
 
 .login-form button:hover {
-  background: linear-gradient(45deg, rgb(0, 219, 235), rgb(0, 95, 219));
+  background: linear-gradient(45deg, rgb(240, 240, 240), rgb(88, 88, 88));
   background-size: 300% 300%;
   animation: easy 4s ease-in-out infinite;
 }
@@ -163,7 +163,7 @@
 }
 
 .signup-form button:hover {
-  background: linear-gradient(45deg, rgb(0, 219, 235), rgb(0, 95, 219));
+  background: linear-gradient(45deg, rgb(240, 240, 240), rgb(88, 88, 88));
   background-size: 300% 300%;
   animation: easy 4s ease-in-out infinite;
 }
@@ -216,4 +216,5 @@
   background-color: transparent;
   border: none;
   padding: 0;
+  cursor: pointer;
 }

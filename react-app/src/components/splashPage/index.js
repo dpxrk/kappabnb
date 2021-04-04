@@ -107,12 +107,12 @@ const SplashPage = () => {
             src="https://wallpapercave.com/wp/wp4204425.jpg"
           />
           <div className="becomeAHostContainerText">
-            <h1>Your state capital is worth sharing</h1>
+            <h1>Your state capital is worth staying at</h1>
             <h4>
-              Turn your extra
-              <span> space </span>
-              into your next
-              <span> opportunity.</span>
+              Come learn more about
+              <span> the history </span>
+              of this
+              <span> state.</span>
             </h4>
             {/* <button>Become a Host</button> */}
           </div>

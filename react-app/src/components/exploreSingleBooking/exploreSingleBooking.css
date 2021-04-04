@@ -141,3 +141,30 @@ body {
 .reviewContent {
   font-family: "Nunito Sans";
 }
+
+.reviewsContainer h3 {
+  font-family: "Nunito Sans";
+  text-align: center;
+  margin: 0;
+  font-size: 24px;
+}
+
+.bottomLineDescription {
+  width: 800px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  border-left: none;
+}
+
+.reviewImageAndName {
+  font-family: "Nunito Sans";
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 18px;
+}
+
+.reviewImage {
+  height: 50px;
+  width: 50px;
+}

@@ -42,7 +42,6 @@ def seed_users():
 
     db.session.add(demo)
     db.session.add(host)
-    db.session.add(new_user)
 
     db.session.commit()
 

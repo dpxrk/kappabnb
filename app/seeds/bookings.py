@@ -584,9 +584,9 @@ def seed_bookings():
 
 
   stateList = []
+  amenitiesList = []
 
-
-
+  #0-16
   db.session.add(heating)
   db.session.add(AC)
   db.session.add(washer)
@@ -606,60 +606,74 @@ def seed_bookings():
   db.session.add(iron)
 
 
+  #0-49
+  db.session.add(alabamaBooking)
+  db.session.add(alaskaBooking)
+  db.session.add(arizonaBooking)
+  db.session.add(arkansasBooking)
+  db.session.add(californiaBooking)
+  db.session.add(coloradoBooking)
+  db.session.add(connecticutBooking)
+  db.session.add(delawareBooking)
+  db.session.add(floridaBooking)
+  db.session.add(georgiaBooking)
+  db.session.add(hawaiiBooking)
+  db.session.add(idahoBooking)
+  db.session.add(illinoisBooking)
+  db.session.add(indianaBooking)
+  db.session.add(iowaBooking)
+  db.session.add(kansasBooking)
+  db.session.add(kentuckyBooking)
+  db.session.add(louisianaBooking)
+  db.session.add(maineBooking)
+  db.session.add(marylandBooking)
+  db.session.add(massachusettsBooking)
+  db.session.add(michiganBooking)
+  db.session.add(minnesotaBooking)
+  db.session.add(mississippiBooking)
+  db.session.add(missouriBooking)
+  db.session.add(montanaBooking)
+  db.session.add(nebraksaBooking)
+  db.session.add(nevadaBooking)
+  db.session.add(newHampshireBooking)
+  db.session.add(newJerseyBooking)
+  db.session.add(newMexicoBooking)
+  db.session.add(newYorkBooking)
+  db.session.add(northCarolinaBooking)
+  db.session.add(northDakotaBooking)
+  db.session.add(ohioBooking)
+  db.session.add(oklahomaBooking)
+  db.session.add(oregonBooking)
+  db.session.add(pennsylvaniaBooking)
+  db.session.add(rhodeIslandBooking)
+  db.session.add(southCarolinaBooking)
+  db.session.add(southDakotaBooking)
+  db.session.add(tennesseeBooking)
+  db.session.add(texasBooking)
+  db.session.add(utahBooking)
+  db.session.add(vermontBooking)
+  db.session.add(virginiaBooking)
+  db.session.add(washingtonBooking)
+  db.session.add(westVirginiaBooking)
+  db.session.add(wisconsinBooking)
+  db.session.add(wyomingBooking)
 
-  stateList.append(alabamaBooking)
-  stateList.append(alaskaBooking)
-  stateList.append(arizonaBooking)
-  stateList.append(arkansasBooking)
-  stateList.append(californiaBooking)
-  stateList.append(coloradoBooking)
-  stateList.append(connecticutBooking)
-  stateList.append(delawareBooking)
-  stateList.append(floridaBooking)
-  stateList.append(georgiaBooking)
-  stateList.append(hawaiiBooking)
-  stateList.append(idahoBooking)
-  stateList.append(illinoisBooking)
-  stateList.append(indianaBooking)
-  stateList.append(iowaBooking)
-  stateList.append(kansasBooking)
-  stateList.append(kentuckyBooking)
-  stateList.append(louisianaBooking)
-  stateList.append(maineBooking)
-  stateList.append(marylandBooking)
-  stateList.append(massachusettsBooking)
-  stateList.append(michiganBooking)
-  stateList.append(minnesotaBooking)
-  stateList.append(mississippiBooking)
-  stateList.append(missouriBooking)
-  stateList.append(montanaBooking)
-  stateList.append(nebraksaBooking)
-  stateList.append(nevadaBooking)
-  stateList.append(newHampshireBooking)
-  stateList.append(newJerseyBooking)
-  stateList.append(newMexicoBooking)
-  stateList.append(newYorkBooking)
-  stateList.append(northCarolinaBooking)
-  stateList.append(northDakotaBooking)
-  stateList.append(ohioBooking)
-  stateList.append(oklahomaBooking)
-  stateList.append(oregonBooking)
-  stateList.append(pennsylvaniaBooking)
-  stateList.append(rhodeIslandBooking)
-  stateList.append(southCarolinaBooking)
-  stateList.append(southDakotaBooking)
-  stateList.append(tennesseeBooking)
-  stateList.append(texasBooking)
-  stateList.append(utahBooking)
-  stateList.append(vermontBooking)
-  stateList.append(virginiaBooking)
-  stateList.append(washingtonBooking)
-  stateList.append(westVirginiaBooking)
-  stateList.append(wisconsinBooking)
-  stateList.append(wyomingBooking)
+
+  # count = 0
+  # while count < 50:
+  #   bookingJoinsAmenities=[
+  #   stateList[count].append(amenitiesList[random.randrange(0,17)]),
+  #   stateList[count].append(amenitiesList[random.randrange(0,17)]),
+  #   stateList[count].append(amenitiesList[random.randrange(0,17)]),
+  #   stateList[count].append(amenitiesList[random.randrange(0,17)]),
+  #   ]
+  #   count +=1
+  #   db.session.add(bookingJoinsAmenities)
 
 
-  db.session.add(stateList)
+
+  # db.session.add(amenitiesList)
+  # db.session.add(stateList)
 
   db.session.commit()
 
