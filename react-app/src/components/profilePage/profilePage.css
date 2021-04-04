@@ -1,0 +1,41 @@
+.titleContainer {
+  height: 1px;
+  width: 1px;
+  border: 1px solid black;
+  font-style: italic;
+}
+
+.titleContainer h2 {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  width: 100vw;
+  margin-top: 125px;
+  margin-left: 150px;
+  font-size: 30px;
+  /* border: 1px solid white; */
+}
+
+.lineUnderTrip {
+  margin-left: 150px;
+  width: 1500px;
+}
+
+.categoriesContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.titleContainer .upcoming {
+  font-family: "Nunito Sans";
+
+  width: 100vw;
+  margin-left: 150px;
+  font-size: 30px;
+}
+.titleContainer .past {
+  font-family: "Nunito Sans";
+
+  width: 100vw;
+  margin-left: 30px;
+  font-size: 30px;
+}

@@ -4,7 +4,7 @@
   width: 100%;
   z-index: 1;
   flex-direction: row;
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(44, 44, 44);
   align-items: flex-end;
 }
 
@@ -36,6 +36,7 @@ ul {
 }
 
 li {
+  margin-right: 15px;
   display: flex;
   float: right;
   align-content: flex-end;
@@ -48,11 +49,13 @@ li a {
   padding: 14px 16px;
   text-decoration: none;
   background-color: transparent;
+  border-radius: 5px;
 }
 
 li a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
 }
 
 .profileImage {
