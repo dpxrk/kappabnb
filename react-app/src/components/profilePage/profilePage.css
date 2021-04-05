@@ -1,5 +1,6 @@
 .EntirePageContainer {
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .titleContainer {
@@ -77,9 +78,8 @@
 }
 
 .entireCardContainer {
-  display: grid;
+  display: flex;
   margin-top: 250px;
-  grid-template-columns: 1fr 1fr 1fr;
   margin-left: 180px;
 }
 
@@ -130,4 +130,14 @@
   width: 2000px;
   display: flex;
   flex-wrap: wrap;
+}
+
+.cancelButton {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  display: flex;
+  align-content: right;
+}
+
+.actualButton {
 }

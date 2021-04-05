@@ -7,10 +7,6 @@ import { useHistory } from "react-router-dom";
 const ProfilePage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [openUpcoming, setOpenUpcoming] = useState(false);
-  const [openPast, setOpenPast] = useState(false);
-  const [emptyPage, setEmptyPage] = useState("true");
-  const sessionUser = useSelector((state) => state?.session?.user);
   const reservations = useSelector(
     (state) => state.reservation.listOfReservations
   );
@@ -40,6 +36,16 @@ const ProfilePage = () => {
         <div className="bottomHalf">
           {reservations &&
             reservations.map((reservation) => {
+              const startDate = new Date(reservation.startDate);
+              const endDate = new Date(reservation.endDate);
+              console.log(
+                "THIS IS START DATE AND TODAY",
+                startDate,
+                endDate,
+                today,
+
+                today <= startDate
+              );
               return (
                 <div
                   className="reservationCardContainer"
@@ -54,10 +60,16 @@ const ProfilePage = () => {
                   ></img>
 
                   <div className="reservationDate">
-                    {reservation.startDate} - {reservation.endDate}
+                    {startDate.toLocaleDateString({}, { dateStyle: "short" })} -{" "}
+                    {endDate.toLocaleDateString({}, { dateStyle: "short" })}
                   </div>
                   <div className="reservationState">{reservation.state} </div>
                   <div className="reservationTitle">{reservation.title} </div>
+                  {today <= startDate && (
+                    <div className="cancelButton">
+                      <button className="actualButton"> Cancel </button>
+                    </div>
+                  )}
                 </div>
               );
             })}

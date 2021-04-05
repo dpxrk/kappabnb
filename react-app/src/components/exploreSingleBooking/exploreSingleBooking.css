@@ -111,6 +111,10 @@ body {
   border-bottom-right-radius: 3px;
 }
 
+.bookingFormButton:hover {
+  cursor: pointer;
+}
+
 .bookingFormTitle h2 {
   display: flex;
   align-self: center;

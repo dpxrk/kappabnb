@@ -5,20 +5,20 @@ def seed_reservations():
   reservation1 = Reservation(
     userId=10,
     bookingId=(random.randrange(0,50)),
-    startDate=("2021-02-01"),
-    endDate=("2021-02-07")
+    startDate=("2/1/21"),
+    endDate=("2/7/21")
   )
   reservation2 = Reservation(
     userId=10,
     bookingId=(random.randrange(0,50)),
-    startDate=("2021-01-05"),
-    endDate=("2021-01-12")
+    startDate=("1/5/21"),
+    endDate=("1/12/21")
   )
   reservation3 = Reservation(
     userId=10,
     bookingId=(random.randrange(0,50)),
-    startDate=("2021-01-15"),
-    endDate=("2021-01-19")
+    startDate=("1/15/21"),
+    endDate=("1/19/21")
   )
 
   db.session.add(reservation1)
