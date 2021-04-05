@@ -101,9 +101,6 @@ const ExploreSingleBooking = () => {
             <GoogleMap
               mapContainerStyle={mapStyles}
               center={defaultLocation}
-              // onCenterChanged={() => {
-              //   console.log("center change");
-              // }}
               zoom={15}
             >
               {bookings.map((booking, idx) => (
