@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./profilePage.css";
 import { getAllReservations } from "../../store/reservation";
+import { useHistory } from "react-router-dom";
 
 const ProfilePage = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [openUpcoming, setOpenUpcoming] = useState(false);
   const [openPast, setOpenPast] = useState(false);
@@ -13,7 +15,10 @@ const ProfilePage = () => {
     (state) => state.reservation.listOfReservations
   );
 
-  console.log("THIS IS RESERVATIONS", reservations);
+  const handleReservationClick = (e, id) => {
+    e.preventDefault();
+    history.push(`/explore/${id}`);
+  };
 
   useEffect(() => {
     // dispatch(getAllBookings(bookings));
@@ -27,8 +32,7 @@ const ProfilePage = () => {
       <div className="titleContainer">
         <h2> Trips</h2>
         <div className="categoriesContainer">
-          <div className="upcoming">Upcoming</div>
-          <div className="past">Past</div>
+          <div className="upcoming">Upcoming & Past</div>
         </div>
         <hr className="lineUnderTrip" />
       </div>
@@ -37,7 +41,12 @@ const ProfilePage = () => {
           {reservations &&
             reservations.map((reservation) => {
               return (
-                <div className="reservationCardContainer">
+                <div
+                  className="reservationCardContainer"
+                  onClick={(e) =>
+                    handleReservationClick(e, reservation.bookingId)
+                  }
+                >
                   <img
                     src={reservation.picture}
                     alt="reservationPhoto"

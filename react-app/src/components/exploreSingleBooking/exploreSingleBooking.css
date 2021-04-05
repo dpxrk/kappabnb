@@ -140,6 +140,15 @@ body {
 
 .reviewContent {
   font-family: "Nunito Sans";
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.reviewsContainer {
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
 }
 
 .reviewsContainer h3 {
@@ -167,4 +176,18 @@ body {
 .reviewImage {
   height: 50px;
   width: 50px;
+}
+
+.bookingPrice {
+  font-size: 22px;
+}
+
+.resetButton {
+  width: 400px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 10px;
+  font-family: "Nunito Sans";
+  background: linear-gradient(#e66465, #9198e5);
+  color: white;
 }

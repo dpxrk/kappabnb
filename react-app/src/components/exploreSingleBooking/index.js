@@ -63,6 +63,11 @@ const ExploreSingleBooking = () => {
     e.preventDefault();
   };
 
+  const handleZoomOut = (e) => {
+    e.preventDefault();
+    history.push(`/explore`);
+  };
+
   const handleReservationSubmit = (e) => {
     e.preventDefault();
     if (
@@ -193,6 +198,9 @@ const ExploreSingleBooking = () => {
                 </div>
               </form>
             </div>
+            <button onClick={(e) => handleZoomOut(e)} className='resetButton'>
+              Want to cancel and look for another place?
+            </button>
           </div>
         </div>
       </div>
