@@ -44,6 +44,12 @@ function App() {
             setAuthenticated={setAuthenticated}
           />
         </Route>
+        <Route path="/sign-up" exact={true}>
+          <SignUpForm
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
+        </Route>
         <Route path="/" exact={true}>
           <SplashPage />
         </Route>
@@ -69,12 +75,6 @@ function App() {
         >
           <ExploreSingleBooking />
         </ProtectedRoute>
-        <Route path="/sign-up" exact={true}>
-          <SignUpForm
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-          />
-        </Route>
       </Switch>
     </>
   );

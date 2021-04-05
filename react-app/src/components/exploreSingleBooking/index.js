@@ -27,7 +27,6 @@ const ExploreSingleBooking = () => {
     },
   ]);
 
-  console.log(reservationDates);
   const total = Math.ceil(
     ((reservationDates[0].endDate - reservationDates[0].startDate) *
       booking.price) /
@@ -63,6 +62,11 @@ const ExploreSingleBooking = () => {
     e.preventDefault();
   };
 
+  const handleZoomOut = (e) => {
+    e.preventDefault();
+    history.push(`/explore`);
+  };
+
   const handleReservationSubmit = (e) => {
     e.preventDefault();
     if (
@@ -75,8 +79,14 @@ const ExploreSingleBooking = () => {
         reserveBooking(
           sessionUser.id,
           booking.id,
-          reservationDates[0].startDate,
-          reservationDates[0].endDate
+          reservationDates[0].startDate.toLocaleDateString(
+            {},
+            { dateStyle: "short" }
+          ),
+          reservationDates[0].endDate.toLocaleDateString(
+            {},
+            { dateStyle: "short" }
+          )
         )
       );
       alert("Your booking has been reserved!");
@@ -193,6 +203,9 @@ const ExploreSingleBooking = () => {
                 </div>
               </form>
             </div>
+            <button onClick={(e) => handleZoomOut(e)} className="resetButton">
+              Want to cancel and look for another place?
+            </button>
           </div>
         </div>
       </div>

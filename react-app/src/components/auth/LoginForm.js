@@ -28,11 +28,11 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     setAuthenticated(true);
   };
 
-  const handleHostClick = async (e) => {
-    const hostUser = await login("host@aa.io", "password");
-    dispatch(setUser(hostUser));
-    setAuthenticated(true);
-  };
+  // const handleHostClick = async (e) => {
+  //   const hostUser = await login("host@aa.io", "password");
+  //   dispatch(setUser(hostUser));
+  //   setAuthenticated(true);
+  // };
 
   if (authenticated) {
     return <Redirect to="/" />;
@@ -74,9 +74,9 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
         <button type="click" onClick={handleDemoClick} className="demoButton">
           Demo User
         </button>
-        <button type="click" onClick={handleHostClick} className="demoButton">
+        {/* <button type="click" onClick={handleHostClick} className="demoButton">
           Host User
-        </button>
+        </button> */}
         <div className="signup-link-box">
           <div className="signup-link-text">
             Don't have an account?&nbsp;

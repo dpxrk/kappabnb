@@ -87,15 +87,24 @@ const SplashPage = () => {
               <img alt="" src="https://wallpapercave.com/wp/wp4204401.jpg" />
               <h2>Different State</h2>
             </div>
-            <div className="differentCapitalBuildings" onClick={(e) => handleClickForImages(e)}>
+            <div
+              className="differentCapitalBuildings"
+              onClick={(e) => handleClickForImages(e)}
+            >
               <img alt="" src="https://wallpapercave.com/wp/wp4064278.jpg" />
               <h2>Different Capital</h2>
             </div>
-            <div className="differentCapitalBuildings" onClick={(e) => handleClickForImages(e)}>
+            <div
+              className="differentCapitalBuildings"
+              onClick={(e) => handleClickForImages(e)}
+            >
               <img alt="" src="https://wallpapercave.com/wp/wp4204405.jpg" />
               <h2>One Nation</h2>
             </div>
-            <div className="differentCapitalBuildings" onClick={(e) => handleClickForImages(e)}>
+            <div
+              className="differentCapitalBuildings"
+              onClick={(e) => handleClickForImages(e)}
+            >
               <img alt="" src="https://wallpapercave.com/wp/wp4204408.jpg" />
               <h2>One Country</h2>
             </div>
@@ -109,10 +118,8 @@ const SplashPage = () => {
           <div className="becomeAHostContainerText">
             <h1>Your state capital is worth staying at</h1>
             <h4>
-              Come learn more about
-              <span> the history </span>
-              of this
-              <span> state.</span>
+              Come learn more about the history
+              <span> of your state.</span>
             </h4>
             {/* <button>Become a Host</button> */}
           </div>
