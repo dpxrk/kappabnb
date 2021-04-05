@@ -38,7 +38,6 @@
 
 .titleContainer .past {
   font-family: "Nunito Sans";
-
   width: 100vw;
   margin-left: 30px;
   font-size: 30px;
@@ -77,6 +76,10 @@
   margin-bottom: -5px;
 }
 
+.picture:hover {
+  cursor: pointer;
+}
+
 .entireCardContainer {
   display: flex;
   margin-top: 250px;
@@ -88,10 +91,6 @@
   width: 500px;
   margin: 15px;
   font-family: "Nunito Sans";
-}
-
-.reservationCardContainer:hover {
-  cursor: pointer;
 }
 
 .reservationDate {
@@ -132,12 +131,14 @@
   flex-wrap: wrap;
 }
 
-.cancelButton {
-  border-left: 1px solid white;
-  border-right: 1px solid white;
-  display: flex;
-  align-content: right;
+.actualButton {
+  width: 200px;
+  background-color: rgb(0, 75, 141);
+  font-family: "Nunito Sans";
+  color: white;
+  font-size: 14px;
 }
 
-.actualButton {
+.actualButton:hover {
+  cursor: pointer;
 }

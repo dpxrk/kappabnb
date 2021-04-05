@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./profilePage.css";
-import { getAllReservations } from "../../store/reservation";
+import { getAllReservations, deleteReservation } from "../../store/reservation";
 import { useHistory } from "react-router-dom";
 
 const ProfilePage = () => {
@@ -21,6 +21,10 @@ const ProfilePage = () => {
     dispatch(getAllReservations(reservations));
   }, [dispatch]);
 
+  const handleCancelButton = (e, id) => {
+    dispatch(deleteReservation(id));
+    history.go(0);
+  };
   const today = new Date();
 
   return (
@@ -38,25 +42,15 @@ const ProfilePage = () => {
             reservations.map((reservation) => {
               const startDate = new Date(reservation.startDate);
               const endDate = new Date(reservation.endDate);
-              console.log(
-                "THIS IS START DATE AND TODAY",
-                startDate,
-                endDate,
-                today,
-
-                today <= startDate
-              );
               return (
-                <div
-                  className="reservationCardContainer"
-                  onClick={(e) =>
-                    handleReservationClick(e, reservation.bookingId)
-                  }
-                >
+                <div className="reservationCardContainer">
                   <img
                     src={reservation.picture}
                     alt="reservationPhoto"
                     className="picture"
+                    onClick={(e) =>
+                      handleReservationClick(e, reservation.bookingId)
+                    }
                   ></img>
 
                   <div className="reservationDate">
@@ -64,12 +58,22 @@ const ProfilePage = () => {
                     {endDate.toLocaleDateString({}, { dateStyle: "short" })}
                   </div>
                   <div className="reservationState">{reservation.state} </div>
-                  <div className="reservationTitle">{reservation.title} </div>
-                  {today <= startDate && (
-                    <div className="cancelButton">
-                      <button className="actualButton"> Cancel </button>
-                    </div>
-                  )}
+                  <div className="reservationTitle">
+                    {reservation.title}{" "}
+                    {today <= startDate && (
+                      <div className="cancelButton">
+                        <div class="leftright"></div>
+                        <div class="rightleft"></div>
+                        <button
+                          className="actualButton"
+                          onClick={(e) => handleCancelButton(e, reservation.id)}
+                        >
+                          {" "}
+                          Cancel Reservation{" "}
+                        </button>
+                      </div>
+                    )}{" "}
+                  </div>
                 </div>
               );
             })}

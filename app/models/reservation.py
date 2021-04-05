@@ -34,6 +34,7 @@ class Reservation(db.Model):
     picture = self.booking.pictures[0].photoURL
 
     return {
+      'id': self.id,
       'startDate' : self.startDate,
       'endDate': self.endDate,
       'title': title,

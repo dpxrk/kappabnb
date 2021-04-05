@@ -21,10 +21,9 @@ def getAllReservations():
 def getOneReservation(id):
   reservation = Reservation.query.get(id)
 
-  if reservation:
-    return jsonify(reservation)
-  else:
-    return {"error":"error"}
+  return {
+    "reservation":[reservation.to_dict()]
+  }
 
 
 #create a new reservations
@@ -43,3 +42,15 @@ def createNewReservation():
   db.session.add(new_reserve)
   db.session.commit()
   return new_reserve.to_dict()
+
+
+
+
+@reservation_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def deleteReservation(id):
+  reservation = Reservation.query.get(id)
+  db.session.delete(reservation)
+  db.session.commit()
+
+  return reservation.to_dict()
