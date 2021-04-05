@@ -26,8 +26,6 @@ const Explore = () => {
   };
 
   const handleMarkerClick = (e, id) => {
-    // return <Redirect to={`/explore/${id}`} />;
-
     history.push(`/explore/${id}`);
   };
 
@@ -39,9 +37,6 @@ const Explore = () => {
             <GoogleMap
               mapContainerStyle={mapStyles}
               center={defaultLocation}
-              // onCenterChanged={() => {
-              //   console.log("center change");
-              // }}
               zoom={5}
             >
               {bookings.map((booking, idx) => (
