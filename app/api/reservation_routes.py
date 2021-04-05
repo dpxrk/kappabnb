@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, jsonify
 from flask_login import login_required
 from app.models import db, Booking, Picture, Review, State, Comment, Reservation, User
 from app.forms import ReservationForm
@@ -6,11 +6,14 @@ from app.forms import ReservationForm
 reservation_routes = Blueprint('reservation', __name__)
 
 #get all existing reservations
-@reservation_routes.route('/')
+@reservation_routes.route('')
 @login_required
 def getAllReservations():
   reservations = Reservation.query.all()
-  return {'reservations': [reservation.to_dict() for reservation in reservations]}
+  return {'reservations': [reservation.to_dict_with_booking_information() for reservation in reservations]}
+  # return jsonify([reservation.to_dict() for reservation in reservations])
+
+
 
 #get one reservation
 @reservation_routes.route('/<int:id>')
@@ -25,7 +28,7 @@ def getOneReservation(id):
 
 
 #create a new reservations
-@reservation_routes.route('/', methods=['POST'])
+@reservation_routes.route('', methods=['POST'])
 @login_required
 def createNewReservation():
   form = ReservationForm()

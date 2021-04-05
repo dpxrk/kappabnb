@@ -1,6 +1,7 @@
 from .db import db
 
 
+
 class Reservation(db.Model):
   __tablename__="reservations"
 
@@ -9,8 +10,8 @@ class Reservation(db.Model):
   bookingId = db.Column(db.Integer, db.ForeignKey('bookings.id'), nullable=False)
   startDate = db.Column(db.String, nullable=False)
   endDate = db.Column(db.String, nullable=False)
-  createdAt = db.Column(db.DateTime,  default=db.func.current_timestamp())
-  updatedAt = db.Column(db.DateTime,  default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
+  createdAt = db.Column(db.DateTime("%Y-%m-%d"),  default=db.func.current_timestamp())
+  updatedAt = db.Column(db.DateTime("%Y-%m-%d"),  default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
   user = db.relationship('User', backref='reservations')
   booking = db.relationship('Booking', backref='reservations')
@@ -23,4 +24,18 @@ class Reservation(db.Model):
       'bookingId': self.bookingId,
       'startDate' : self.startDate,
       'endDate' :self.endDate
+    }
+
+
+  def to_dict_with_booking_information(self):
+    title = self.booking.title
+    state = self.booking.state.stateName
+    picture = self.booking.pictures[0].photoURL
+
+    return {
+      'startDate' : self.startDate,
+      'endDate': self.endDate,
+      'title': title,
+      'state': state,
+      'picture' : picture
     }

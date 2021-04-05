@@ -32,12 +32,21 @@
   margin-left: 150px;
   font-size: 30px;
 }
+
+.upcoming:hover {
+  cursor: pointer;
+}
+
 .titleContainer .past {
   font-family: "Nunito Sans";
 
   width: 100vw;
   margin-left: 30px;
   font-size: 30px;
+}
+
+.past:hover {
+  cursor: pointer;
 }
 
 .bookingPrice {
@@ -55,4 +64,53 @@
 .recenter {
   z-index: 1;
   margin-bottom: 50px;
+}
+
+.photoContainer {
+  margin-top: 1px;
+}
+
+.picture {
+  height: 180px;
+  width: 400px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.entireCardContainer {
+  display: grid;
+  margin-top: 250px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 180px;
+}
+
+.reservationCardContainer {
+  border-radius: 10px;
+  width: 400px;
+}
+
+.reservationDate {
+  font-size: 14px;
+  font-style: italic;
+  color: grey;
+  border: 0px;
+}
+
+.reservationTitle {
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-right-color: 1px solid white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-right: 1px solid white;
+}
+
+.reservationState {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.reservationDate {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
