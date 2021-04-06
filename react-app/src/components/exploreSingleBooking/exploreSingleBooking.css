@@ -23,12 +23,14 @@ body {
   border: 1px solid white;
   display: flex;
   overflow: scroll;
+  /* overflow-x: hidden; */
 }
 
 .bookingContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .bookingFormContainer {
@@ -44,10 +46,14 @@ body {
   align-items: center;
   text-align: center;
   font-size: 36px;
+  width: 100%;
 }
 
+.entirePicture {
+  width: 100%;
+}
 .pictureContainer {
-  width: 50vw;
+  width: 100%;
   display: flex;
   overflow: hidden;
   align-items: center;
@@ -118,24 +124,23 @@ body {
 .bookingFormTitle h2 {
   display: flex;
   align-self: center;
+  width: 100%;
 }
 
 .bottomLineUnderTitle {
-  width: 800px;
+  width: 100%;
   margin-bottom: 20px;
   margin-top: -28px;
-  border-left: none;
 }
 
 .bottomLineAddress {
-  width: 800px;
+  width: 100%;
   margin-bottom: 20px;
   margin-top: -16px;
-  border-left: none;
 }
 
 .bottomLinePictures {
-  width: 1000px;
+  width: 100%;
 }
 
 .reviews {
@@ -148,10 +153,12 @@ body {
   border-right: 1px solid white;
   padding-left: 10px;
   padding-right: 10px;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+  border-top: 1px solid white;
 }
 
 .reviewsContainer {
-  border-bottom: 1px solid white;
   padding-bottom: 10px;
 }
 
@@ -163,7 +170,7 @@ body {
 }
 
 .bottomLineDescription {
-  width: 800px;
+  width: 100%;
   margin-bottom: 20px;
   margin-top: 5px;
   border-left: none;

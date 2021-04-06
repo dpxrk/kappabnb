@@ -25,6 +25,11 @@ const ProfilePage = () => {
     dispatch(deleteReservation(id));
     history.go(0);
   };
+
+  const handleReviewButton = (e, id) => {
+    e.preventDefault();
+    history.push(`/explore/${id}/reviews`);
+  };
   const today = new Date();
 
   return (
@@ -62,8 +67,6 @@ const ProfilePage = () => {
                     {reservation.title}{" "}
                     {today <= startDate && (
                       <div className="cancelButton">
-                        <div class="leftright"></div>
-                        <div class="rightleft"></div>
                         <button
                           className="actualButton"
                           onClick={(e) => handleCancelButton(e, reservation.id)}
@@ -73,6 +76,16 @@ const ProfilePage = () => {
                         </button>
                       </div>
                     )}{" "}
+                    {today >= endDate && (
+                      <div className="reviewButton">
+                        <button
+                          className="actualButton"
+                          onClick={(e) => handleReviewButton(e, reservation.id)}
+                        >
+                          Review the reservation
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               );

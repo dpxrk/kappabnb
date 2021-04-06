@@ -113,9 +113,6 @@ const ExploreSingleBooking = () => {
             </GoogleMap>
           )}
         </LoadScript>
-        <button type="click" className="recenter">
-          Recenter
-        </button>
       </div>
       <div className="rightHalfOfPage1">
         <div className="bookingContainer">
@@ -133,7 +130,7 @@ const ExploreSingleBooking = () => {
               {booking.address}, {booking.capitol}&nbsp;{booking.state}
             </h3>
           </div>
-          <div>
+          <div className="entirePicture">
             <hr className="bottomLineAddress" />
             <div className="pictureContainerTitle">
               <h3> Here are some beautiful photos for you to check out </h3>{" "}
@@ -165,7 +162,11 @@ const ExploreSingleBooking = () => {
                   <img src={review.photo} alt="" className="reviewImage" />{" "}
                   {review.userName}{" "}
                 </div>
-                <div className="reviewContent">{review.content} </div>
+                <div className="reviewContent">
+                  {review.content} <i class="far fa-star" />
+                  {review.numberOfStars}{" "}
+                </div>
+
                 <form
                   onSubmit={(e) => handleReviewSubmit(e, sessionUser.id)}
                 ></form>

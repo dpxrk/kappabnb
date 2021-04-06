@@ -20,9 +20,9 @@ body {
   width: 50%;
   border: 1px solid white;
   display: flex;
-
   align-items: center;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .centerContainer {

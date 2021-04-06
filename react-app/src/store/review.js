@@ -1,5 +1,6 @@
 const GET_REVIEWS = "GET_REVIEWS";
 const CREATE_REVIEWS = "CREATE_REVIEWS";
+const DELETE_REVIEW = "DELETE_REVIEW";
 
 const getReviews = (reviews) => ({
   type: GET_REVIEWS,
@@ -11,8 +12,24 @@ const createReview = (reviews) => ({
   reviews,
 });
 
+const removeReview = (id) => {
+  return {
+    type: DELETE_REVIEW,
+    id,
+  };
+};
+
 export const getAllReviews = () => async (dispatch) => {
-  const response = await fetch(`/api/reviews/`);
+  const response = await fetch(`/api/reviews`);
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(getReviews(data.reviews));
+    return data;
+  }
+};
+
+export const getAllReviewsOfOneBooking = (id) => async (dispatch) => {
+  const response = await fetch(`/api/reviews/${id}`);
   if (response.ok) {
     const data = await response.json();
     dispatch(getReviews(data));
@@ -33,32 +50,43 @@ export const createSingleReview = (
   };
 
   const response = await fetch(`/api/reviews/${bookingId}`, build);
+
   if (!response.ok) alert("SOMETHING IS WRONG");
-  const result = response.json();
-  return dispatch(createReview(result));
+  const result = await response.json();
+
+  dispatch(createReview(result));
+  return result;
 };
 
-const initialState = { reviewsArray: [] };
+export const deleteReview = (id) => async (dispatch) => {
+  const build = { method: "DELETE" };
+
+  const response = await fetch(`/api/reviews/${id}`, build);
+  const result = await response.json();
+  dispatch(removeReview(result));
+  return response;
+};
+
+const initialState = { listOfReviews: [] };
 const reviewReducer = (state = initialState, action) => {
-  let allReviews = [];
+  let newState;
+  let allReviews;
   switch (action.type) {
     case GET_REVIEWS:
-      allReviews = [];
-      action.reviews.reviews.forEach((review) => {
-        allReviews.push(review);
-      });
+      allReviews = [...action.reviews];
       return {
-        reviewsArray: allReviews,
+        listOfReviews: allReviews,
       };
     case CREATE_REVIEWS:
-      allReviews = [];
-      action.reviews.forEach((review) => {
-        allReviews.push(review);
-      });
-      const newReviewsArray = [...allReviews, ...state.reviewsArray];
+      allReviews = [action.reviews];
+      const newListOfReviews = [...allReviews, ...state.listOfReviews];
       return {
-        reviewsArray: newReviewsArray,
+        listOfReviews: newListOfReviews,
       };
+    case DELETE_REVIEW:
+      newState = { ...state };
+      delete newState[action.id];
+      return newState;
     default:
       return state;
   }

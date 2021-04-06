@@ -44,5 +44,6 @@ class Booking(db.Model):
       "lng": float(self.lng),
       "lat": float(self.lat),
       "reviews": [review.to_dict() for review in reviews],
+      "numberOfStars": [review.numberOfStars for review in reviews],
       "averageReview" : sum([review.numberOfStars for review in reviews])/len(reviews)
     }

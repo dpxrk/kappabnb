@@ -6,7 +6,7 @@ from app.forms import ReviewForm
 review_routes = Blueprint('reviews', __name__)
 
 #get all reviews
-@review_routes.route('/')
+@review_routes.route('')
 def getAllReviews():
   reviews = Review.query.all()
 
@@ -22,8 +22,8 @@ def getOneReview(id):
 
 
 #create a new review
-@review_routes.route('/')
-def createReview():
+@review_routes.route('/<int:id>', methods=['POST'])
+def createReview(id):
   form = ReviewForm()
 
   new_review = Review(
@@ -37,3 +37,14 @@ def createReview():
   db.session.commit()
 
   return new_review.to_dict()
+
+
+
+@review_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def deleteReview(id):
+  review = Review.query.get(id)
+  db.session.delete(review)
+  db.session.commit()
+
+  return review.to_dict()

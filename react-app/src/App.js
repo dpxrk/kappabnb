@@ -10,6 +10,7 @@ import Explore from "./components/Explore(googlemapapi)";
 import { useDispatch } from "react-redux";
 import ExploreSingleBooking from "./components/exploreSingleBooking";
 import ProfilePage from "./components/profilePage";
+import ReviewReservation from "./components/reviewReservation";
 
 function App() {
   const dispatch = useDispatch();
@@ -74,6 +75,13 @@ function App() {
           authenticated={authenticated}
         >
           <ExploreSingleBooking />
+        </ProtectedRoute>
+        <ProtectedRoute
+          path="/explore/:id/reviews"
+          exact={true}
+          authenticated={authenticated}
+        >
+          <ReviewReservation />
         </ProtectedRoute>
       </Switch>
     </>
