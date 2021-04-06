@@ -1,5 +1,6 @@
 const GET_REVIEWS = "GET_REVIEWS";
 const CREATE_REVIEWS = "CREATE_REVIEWS";
+const GET_ONE_REVIEW = "GET_ONE_REVIEW";
 
 const getReviews = (reviews) => ({
   type: GET_REVIEWS,
@@ -25,7 +26,7 @@ export const getAllReviewsOfOneBooking = (id) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(getReviews(data));
-    return data
+    return data;
   }
 };
 
