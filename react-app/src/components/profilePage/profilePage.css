@@ -132,11 +132,12 @@
 }
 
 .actualButton {
-  width: 200px;
+  width: 150px;
   background-color: rgb(0, 75, 141);
   font-family: "Nunito Sans";
   color: white;
   font-size: 14px;
+  border-radius: 10px;
 }
 
 .actualButton:hover {

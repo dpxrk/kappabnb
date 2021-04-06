@@ -1,5 +1,6 @@
 const GET_REVIEWS = "GET_REVIEWS";
 const CREATE_REVIEWS = "CREATE_REVIEWS";
+const DELETE_REVIEW = "DELETE_REVIEW";
 
 const getReviews = (reviews) => ({
   type: GET_REVIEWS,
@@ -10,6 +11,13 @@ const createReview = (reviews) => ({
   type: CREATE_REVIEWS,
   reviews,
 });
+
+const removeReview = (id) => {
+  return {
+    type: DELETE_REVIEW,
+    id,
+  };
+};
 
 export const getAllReviews = () => async (dispatch) => {
   const response = await fetch(`/api/reviews`);
@@ -50,8 +58,18 @@ export const createSingleReview = (
   return result;
 };
 
+export const deleteReview = (id) => async (dispatch) => {
+  const build = { method: "DELETE" };
+
+  const response = await fetch(`/api/reviews/${id}`, build);
+  const result = await response.json();
+  dispatch(removeReview(result));
+  return response;
+};
+
 const initialState = { listOfReviews: [] };
 const reviewReducer = (state = initialState, action) => {
+  let newState;
   let allReviews;
   switch (action.type) {
     case GET_REVIEWS:
@@ -65,6 +83,10 @@ const reviewReducer = (state = initialState, action) => {
       return {
         listOfReviews: newListOfReviews,
       };
+    case DELETE_REVIEW:
+      newState = { ...state };
+      delete newState[action.id];
+      return newState;
     default:
       return state;
   }

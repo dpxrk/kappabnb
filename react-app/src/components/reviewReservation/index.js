@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./reviewReservation.css";
-import { createSingleReview } from "../../store/review";
+import { createSingleReview, deleteReview } from "../../store/review";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleBooking } from "../../store/booking";
@@ -32,6 +32,11 @@ const ReviewReservation = () => {
     history.go(0);
   };
 
+  const handleDeleteReview = (e, id) => {
+    dispatch(deleteReview(id));
+    history.go(0);
+  };
+
   return (
     <div className="entireReviewsContainer">
       <div className="reviewContainer">
@@ -47,8 +52,17 @@ const ReviewReservation = () => {
                   <img src={review.photo} alt="" className="reviewImage1" />{" "}
                   {review.userName}
                 </div>
-
-                <div className="existingReviewContent">{review.content} </div>
+                <div className="existingReviewContent">
+                  {review.content}{" "} 
+                  {sessionUser.id === review.userId && (
+                    <button
+                      className="deleteButton"
+                      onClick={(e) => handleDeleteReview(e, review.id)}
+                    >
+                      Delete Review{" "}
+                    </button>
+                  )}{" "}
+                </div>
               </div>
             ))}
           </div>
