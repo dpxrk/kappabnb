@@ -130,7 +130,7 @@ const ExploreSingleBooking = () => {
               {booking.address}, {booking.capitol}&nbsp;{booking.state}
             </h3>
           </div>
-          <div>
+          <div className='entirePicture'>
             <hr className="bottomLineAddress" />
             <div className="pictureContainerTitle">
               <h3> Here are some beautiful photos for you to check out </h3>{" "}
