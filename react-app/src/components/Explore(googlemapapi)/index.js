@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import "./explore.css";
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { getAllBookings } from "../../store/booking";
 

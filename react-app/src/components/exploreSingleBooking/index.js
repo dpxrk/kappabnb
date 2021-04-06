@@ -8,7 +8,6 @@ import { DateRange } from "react-date-range";
 import { reserveBooking } from "../../store/reservation";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-// import { getAllReviews } from "../../store/review";
 
 const ExploreSingleBooking = () => {
   const history = useHistory();
@@ -17,7 +16,6 @@ const ExploreSingleBooking = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state?.session?.user);
   const bookings = useSelector((state) => state.booking.listOfBookings);
-  // const reviews = useSelector((state) => state?.reviews?.newReviews);
 
   const [reservationDates, setReservationDates] = useState([
     {

@@ -11,7 +11,7 @@ const SplashPage = () => {
 
   useEffect(() => {
     dispatch(getAllBookings(bookings));
-  }, [bookings]);
+  }, [dispatch, bookings]);
 
   const handleClickForImages = (e) => {
     e.preventDefault();
