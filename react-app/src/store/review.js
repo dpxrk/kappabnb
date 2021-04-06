@@ -12,7 +12,16 @@ const createReview = (reviews) => ({
 });
 
 export const getAllReviews = () => async (dispatch) => {
-  const response = await fetch(`/api/reviews/`);
+  const response = await fetch(`/api/reviews`);
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(getReviews(data));
+    return data;
+  }
+};
+
+export const getAllReviewsOfOneBooking = (id) => async (dispatch) => {
+  const response = await fetch(`/api/reviews/${id}`);
   if (response.ok) {
     const data = await response.json();
     dispatch(getReviews(data));

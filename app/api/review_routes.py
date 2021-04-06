@@ -6,7 +6,7 @@ from app.forms import ReviewForm
 review_routes = Blueprint('reviews', __name__)
 
 #get all reviews
-@review_routes.route('/')
+@review_routes.route('')
 def getAllReviews():
   reviews = Review.query.all()
 
@@ -22,7 +22,7 @@ def getOneReview(id):
 
 
 #create a new review
-@review_routes.route('/')
+@review_routes.route('')
 def createReview():
   form = ReviewForm()
 
