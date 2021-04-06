@@ -113,9 +113,6 @@ const ExploreSingleBooking = () => {
             </GoogleMap>
           )}
         </LoadScript>
-        <button type="click" className="recenter">
-          Recenter
-        </button>
       </div>
       <div className="rightHalfOfPage1">
         <div className="bookingContainer">

@@ -6,7 +6,8 @@
   display: flex;
   justify-content: space-around;
   background-image: url("https://images.unsplash.com/photo-1568920088183-3cce8a41a79f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2155&q=80");
-  height: 100%;
+  max-height: 100%;
+  width: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -21,7 +22,7 @@
 
 .login-form {
   margin-left: 0;
-  height: 1500px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -79,6 +80,7 @@
   font-size: 20px;
   color: White;
   background-color: transparent;
+  font-family: "Nunito Sans";
 }
 
 /* Changed color of signUp link */
@@ -119,7 +121,7 @@
 .signup-form {
   /* background-color: #fafafa; */
   margin-left: 0;
-  height: 1500px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
