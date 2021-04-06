@@ -22,8 +22,8 @@ def getOneReview(id):
 
 
 #create a new review
-@review_routes.route('')
-def createReview():
+@review_routes.route('/<int:id>', methods=['POST'])
+def createReview(id):
   form = ReviewForm()
 
   new_review = Review(

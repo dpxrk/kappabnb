@@ -19,19 +19,79 @@
 }
 
 .otherReviewsContainer {
-  height: 100%;
+  height: 50%;
+  width: 100vw;
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.reviewCardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 500px;
+}
+
+.lineInsideCard {
+  width: 100%;
+}
+.existingReviewContent {
+  font-size: 65%;
+  text-align: left;
+  border-top: 1px solid white;
+  padding-left: 10px;
+  height: 60%;
 }
 
 .reviewForm {
-  height: 1000px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.theBottomFormContainer {
+  height: 50%;
+  padding-top: 250px;
+}
+
+.reviewCard {
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+input {
+  text-align: center;
+  border-radius: 10px;
+  margin: 10px;
+}
+.numberOfStarsInpuxBox {
+  width: 250px;
+}
+
+.reviewImage1 {
+  width: 75px;
+  height: 75px;
+  font-size: 16px;
+  border-radius: 50px;
+}
+
+.reviewImageAndName1 {
+  width: 400px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
+
+.reviewName {
+  font-family: "Nunito Sans";
+  font-size: 16px;
 }
 
 .reviewContent {
-  height: 104px;
-  width: 591px;
+  width: 475px;
+  height: 250px;
+  border-radius: 10px;
 }

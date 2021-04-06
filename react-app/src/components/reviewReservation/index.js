@@ -1,28 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./reviewReservation.css";
-import {
-  getAllReviews,
-  getAllReviewsOfOneBooking,
-  createSingleReview,
-} from "../../store/review";
-import { useParams } from "react-router-dom";
+import { createSingleReview } from "../../store/review";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleBooking } from "../../store/booking";
 
 const ReviewReservation = () => {
+  const history = useHistory();
   const { id } = useParams();
   const dispatch = useDispatch();
   const [review, setReview] = useState("");
   const [numberOfStars, setNumberOfStars] = useState("");
   const [booking, setBooking] = useState({});
   const sessionUser = useSelector((state) => state?.session?.user);
-  const reviews = useSelector((state) => state?.review?.reviewsArray);
-
-  console.log("THESE ARE THE REVIEWS", reviews);
-  console.log("THIS IS THE BOOKING", booking);
 
   useEffect(() => {
-    dispatch(getAllReviews(id));
     const data = async () => {
       const singleBooking = await getSingleBooking(id);
       setBooking(singleBooking);
@@ -37,6 +29,7 @@ const ReviewReservation = () => {
     const bookingId = id;
     const userId = sessionUser.id;
     dispatch(createSingleReview(userId, bookingId, numberOfStars, review));
+    history.go(0);
   };
 
   return (
@@ -45,16 +38,24 @@ const ReviewReservation = () => {
         Check out other reviews
         <hr className="lineUnderTitle" />
         <div className="otherReviewsContainer">
-          {booking?.reviews?.map((review) => (
-            <div className="reviewContent" key={review.id}>
-              <div className="reviewImageAndName">
-                {" "}
-                <img src={review.photo} alt="" className="reviewImage" />{" "}
-                {review.userName}{" "}
+          <div className="reviewCardContainer">
+            {booking?.reviews?.map((review) => (
+              <div className="reviewCard" key={review.id}>
+                <div className="reviewImageAndName1">
+                  {" "}
+                  <i class="far fa-star" /> {review.numberOfStars}{" "}
+                  <img src={review.photo} alt="" className="reviewImage1" />{" "}
+                  {review.userName}
+                </div>
+
+                <div className="existingReviewContent">{review.content} </div>
               </div>
-              <div className="reviewContent">{review.content} </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+        <div className="theBottomFormContainer">
+          Write your review here
+          <hr className="lineUnderTitle" />
           <form
             className="reviewForm"
             onSubmit={(e) => handleReviewFormSubmit(e)}
@@ -66,7 +67,7 @@ const ReviewReservation = () => {
             />
             <input
               className="numberOfStarsInputBox"
-              placeHolder="Rate the reservation from 1-5"
+              placeHolder="Rating from 1-5"
               onChange={(e) => setNumberOfStars(e.target.value)}
             />
             <button type="Submit"> Submit</button>

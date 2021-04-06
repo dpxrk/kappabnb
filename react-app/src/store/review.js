@@ -1,6 +1,5 @@
 const GET_REVIEWS = "GET_REVIEWS";
 const CREATE_REVIEWS = "CREATE_REVIEWS";
-const GET_ONE_REVIEW = "GET_ONE_REVIEW";
 
 const getReviews = (reviews) => ({
   type: GET_REVIEWS,
@@ -16,7 +15,7 @@ export const getAllReviews = () => async (dispatch) => {
   const response = await fetch(`/api/reviews`);
   if (response.ok) {
     const data = await response.json();
-    dispatch(getReviews(data));
+    dispatch(getReviews(data.reviews));
     return data;
   }
 };
@@ -43,31 +42,28 @@ export const createSingleReview = (
   };
 
   const response = await fetch(`/api/reviews/${bookingId}`, build);
+
   if (!response.ok) alert("SOMETHING IS WRONG");
-  const result = response.json();
-  return dispatch(createReview(result));
+  const result = await response.json();
+
+  dispatch(createReview(result));
+  return result;
 };
 
-const initialState = { reviewsArray: [] };
+const initialState = { listOfReviews: [] };
 const reviewReducer = (state = initialState, action) => {
-  let allReviews = [];
+  let allReviews;
   switch (action.type) {
     case GET_REVIEWS:
-      allReviews = [];
-      action.reviews.reviews.forEach((review) => {
-        allReviews.push(review);
-      });
+      allReviews = [...action.reviews];
       return {
-        reviewsArray: allReviews,
+        listOfReviews: allReviews,
       };
     case CREATE_REVIEWS:
-      allReviews = [];
-      action.reviews.forEach((review) => {
-        allReviews.push(review);
-      });
-      const newReviewsArray = [...allReviews, ...state.reviewsArray];
+      allReviews = [action.reviews];
+      const newListOfReviews = [...allReviews, ...state.listOfReviews];
       return {
-        reviewsArray: newReviewsArray,
+        listOfReviews: newListOfReviews,
       };
     default:
       return state;
