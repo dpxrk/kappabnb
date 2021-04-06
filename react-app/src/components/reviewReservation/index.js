@@ -53,7 +53,7 @@ const ReviewReservation = () => {
                   {review.userName}
                 </div>
                 <div className="existingReviewContent">
-                  {review.content}{" "} 
+                  {review.content}{" "}
                   {sessionUser.id === review.userId && (
                     <button
                       className="deleteButton"
@@ -75,7 +75,7 @@ const ReviewReservation = () => {
             onSubmit={(e) => handleReviewFormSubmit(e)}
           >
             <textarea
-              className="reviewContent"
+              className="reviewContent1"
               placeHolder="Add a review.."
               onChange={(e) => setReview(e.target.value)}
             />
