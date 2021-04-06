@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./reviewReservation.css";
-import { getAllReviews, createSingleReview } from "../../store/review";
+import {
+  getAllReviews,
+  getAllReviewsOfOneBooking,
+  createSingleReview,
+} from "../../store/review";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,6 +14,9 @@ const ReviewReservation = () => {
   const [review, setReview] = useState("");
   const [numberOfStars, setNumberOfStars] = useState("");
   const sessionUser = useSelector((state) => state?.session?.user);
+  const reviews = useSelector((state) => state?.review?.reviewsArray);
+
+  console.log("THESE ARE THE REVIEWS", reviews);
 
   useEffect(() => {
     dispatch(getAllReviews(id));

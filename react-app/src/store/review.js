@@ -25,7 +25,7 @@ export const getAllReviewsOfOneBooking = (id) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(getReviews(data));
-    return data;
+    return data
   }
 };
 

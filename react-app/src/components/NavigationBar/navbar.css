@@ -50,6 +50,8 @@ li a {
   text-decoration: none;
   background-color: transparent;
   border-radius: 5px;
+  font-family: "Nunito Sans";
+  font-size: 36px;
 }
 
 li a:hover {
