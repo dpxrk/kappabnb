@@ -1,8 +1,8 @@
 # KappaBnb
 =================
 
-### [][Live Link]
-(https://kappabnb.herokuapp.com/)
+### [](https://github.com/dpxrk/kappabnb#live-link)[Live Link](https://kappabnb.herokuapp.com/)
+
 
 Welcome to KappaBnb, a booking reservation website designed for State Capitol Buildings!
 
