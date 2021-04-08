@@ -52,7 +52,7 @@
 }
 
 .theBottomFormContainer {
-  height: 50%;
+  height: 60%;
   padding-top: 250px;
 }
 
@@ -60,6 +60,7 @@
   border: 1px solid white;
   border-radius: 10px;
   margin: 10px;
+  height: 50%;
 }
 
 input {
@@ -103,4 +104,23 @@ input {
   color: white;
   font-size: 14px;
   border-radius: 10px;
+}
+
+.submitButton {
+  border-radius: 10px;
+  width: 100px;
+  background-color: rgb(0, 75, 141);
+  font-family: "Nunito Sans";
+  color: white;
+}
+
+
+.cancelReviewButton {
+  width: 400px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 10px;
+  font-family: "Nunito Sans";
+  background: linear-gradient(#e66465, #9198e5);
+  color: white;
 }
