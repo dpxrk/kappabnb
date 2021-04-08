@@ -14,6 +14,8 @@ const ReviewReservation = () => {
   const [booking, setBooking] = useState({});
   const sessionUser = useSelector((state) => state?.session?.user);
 
+  console.log(booking);
+
   useEffect(() => {
     const data = async () => {
       const singleBooking = await getSingleBooking(id);
@@ -37,10 +39,15 @@ const ReviewReservation = () => {
     history.go(0);
   };
 
+  const handleRerouteToBooking = (e) => {
+    history.push(`/explore`);
+  };
+
   return (
     <div className="entireReviewsContainer">
       <div className="reviewContainer">
-        Check out other reviews
+        Check out other reviews for {booking.title} located at {booking.state},{" "}
+        {booking.capitol}
         <hr className="lineUnderTitle" />
         <div className="otherReviewsContainer">
           <div className="reviewCardContainer">
@@ -84,8 +91,18 @@ const ReviewReservation = () => {
               placeHolder="Rating from 1-5"
               onChange={(e) => setNumberOfStars(e.target.value)}
             />
-            <button type="Submit"> Submit</button>
+            <button type="Submit" className="submitButton">
+              {" "}
+              Submit
+            </button>
           </form>
+          <button
+            className="cancelReviewButton"
+            onClick={(e) => handleRerouteToBooking(e)}
+          >
+            {" "}
+            Cancel Review and Go Back to Explore!
+          </button>
         </div>
       </div>
     </div>
