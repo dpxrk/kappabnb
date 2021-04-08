@@ -39,8 +39,8 @@ const ReviewReservation = () => {
     history.go(0);
   };
 
-  const handleRerouteToBooking = (e, id) => {
-    history.push(`/explore/${booking.id}`);
+  const handleRerouteToBooking = (e) => {
+    history.push(`/explore`);
   };
 
   return (
@@ -96,7 +96,13 @@ const ReviewReservation = () => {
               Submit
             </button>
           </form>
-          <button className='cancelReviewButton'> Want to cancel review and go back to explore?</button>
+          <button
+            className="cancelReviewButton"
+            onClick={(e) => handleRerouteToBooking(e)}
+          >
+            {" "}
+            Cancel Review and Go Back to Explore!
+          </button>
         </div>
       </div>
     </div>
