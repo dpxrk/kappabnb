@@ -30,6 +30,26 @@ This application is built upon Flask-SQLAlchemy and Postgres on the backend, whi
 5. Google Maps API
 
 
+[](https://github.com/dpxrk/kappabnb#how-to-use) How To Use
+---------------------------------------------------------------------------------
+# Clone this repository
+$ git clone https://github.com/KevKodes/InstaLock.git
+
+# Install flask dependencies in root directory
+$ pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+
+# Install dependencies in react-app directory
+$ cd react-app
+$ npm install
+
+# Run back end server from pipenv shell
+$ pipenv shell
+$ flask run
+
+# Run front end server
+$ npm start
+
+
 [](https://github.com/dpxrk/kappabnb#Moving-Forward) Moving Forward:
 ---------------------------------------------------------------------------------
 The project was a sprint with two days of planning and a week long of uninterrupted coding time. Moving forward, things that I want to be able to implement are functionality for users to be able to communicate with other users for messaging, and also being able to create modals throughout the project.
