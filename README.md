@@ -1,5 +1,4 @@
 # KappaBnb
-=================
 [![homePage.jpg](https://i.postimg.cc/s2ZC5LS2/homePage.jpg)](https://postimg.cc/jWK1bZMV)
 
 
@@ -146,7 +145,7 @@ const handleReservationSubmit = (e) => {
 Once the user has set a reservation, they would be able to go to their profile and look at their upcoming and past reservations. I placed a conditional to say that if the endDate of the reservation was passed today, then the review a reservation button would appear while on the other had, if today is before the startDate, the user will be able to cancel a reservation.
 
 ```
-<div className="reservationTitle">
+                  <div className="reservationTitle">
                     {reservation.title}{" "}
                     {today <= startDate && (
                       <div className="cancelButton">
