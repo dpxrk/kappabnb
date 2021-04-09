@@ -177,7 +177,7 @@ Once the user has set a reservation, they would be able to go to their profile a
 
 [](https://github.com/dpxrk/kappabnb#Moving-Forward) Moving Forward:
 ---------------------------------------------------------------------------------
-All in all, the project was a sprint with two days of planning and a week long of uninterrupted coding time. It was stressful, yet very rewarding to see my vision of a web application being developed from the group up. Moving forward, things that I want to be able to implement are functionality for users to be able to communicate with other users for messaging using websockets, and also being able to create modals throughout the project to add asthetics.
+All in all, the project was a sprint with two days of planning and a week long of uninterrupted coding time. It was stressful, yet very rewarding to see my vision of a web application being developed from the ground up. Moving forward, things that I want to be able to implement are functionality for users to be able to communicate with other users for messaging using websockets, and also being able to create modals throughout the project to add asthetics.
 
 
 
