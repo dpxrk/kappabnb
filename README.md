@@ -32,6 +32,7 @@ This application is built upon Flask-SQLAlchemy and Postgres on the backend, whi
 
 [](https://github.com/dpxrk/kappabnb#how-to-use) How To Use
 ---------------------------------------------------------------------------------
+```
 # Clone this repository
 $ git clone https://github.com/KevKodes/InstaLock.git
 
@@ -48,7 +49,7 @@ $ flask run
 
 # Run front end server
 $ npm start
-
+```
 
 [](https://github.com/dpxrk/kappabnb#Moving-Forward) Moving Forward:
 ---------------------------------------------------------------------------------
