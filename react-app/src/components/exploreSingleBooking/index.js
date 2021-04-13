@@ -38,7 +38,6 @@ const ExploreSingleBooking = () => {
 
   useEffect(() => {
     dispatch(getAllBookings(bookings));
-    // dispatch(getAllReviews());
 
     const data = async () => {
       const singleBooking = await getSingleBooking(id);
