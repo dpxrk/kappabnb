@@ -52,7 +52,7 @@ const ProfilePage = () => {
             reservations.map((reservation) => {
               const startDate = new Date(reservation.startDate);
               const endDate = new Date(reservation.endDate);
-              if (reservation.id === sessionUser.id) {
+              if (reservation?.id === sessionUser?.id) {
                 return (
                   <div className="reservationCardContainer">
                     <img
@@ -102,7 +102,6 @@ const ProfilePage = () => {
               }
             })}
         </div>
-
       </div>
     </div>
   );
