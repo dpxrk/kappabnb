@@ -15,6 +15,10 @@ def getAllReservations():
 
 
 
+#get reservations by userEmail
+
+
+
 #get one reservation
 @reservation_routes.route('/<int:id>')
 @login_required

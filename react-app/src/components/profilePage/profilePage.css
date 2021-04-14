@@ -1,6 +1,7 @@
 .EntirePageContainer {
   overflow-x: hidden;
   overflow-y: auto;
+  height: 100vh;
 }
 
 .titleContainer {
@@ -32,19 +33,11 @@
   font-size: 30px;
 }
 
-.upcoming:hover {
-  cursor: pointer;
-}
-
 .titleContainer .past {
   font-family: "Nunito Sans";
   width: 100vw;
   margin-left: 30px;
   font-size: 30px;
-}
-
-.past:hover {
-  cursor: pointer;
 }
 
 .bookingPrice {

@@ -36,13 +36,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to={`/${sessionUser?.email}`}>
-            <img
-              src={sessionUser?.profileImage}
-              className="profileImage"
-              alt="profilePic"
-            />
-          </NavLink>
+          <NavLink to={`/${sessionUser?.email}`}>Profile</NavLink>
         </li>
         <li>
           <LogoutButton setAuthenticated={setAuthenticated} />

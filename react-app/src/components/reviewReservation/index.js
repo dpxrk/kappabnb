@@ -4,6 +4,7 @@ import { createSingleReview, deleteReview } from "../../store/review";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleBooking } from "../../store/booking";
+import Rating from "@material-ui/lab/Rating";
 
 const ReviewReservation = () => {
   const history = useHistory();
@@ -14,7 +15,7 @@ const ReviewReservation = () => {
   const [booking, setBooking] = useState({});
   const sessionUser = useSelector((state) => state?.session?.user);
 
-  console.log(booking);
+  
 
   useEffect(() => {
     const data = async () => {
@@ -86,10 +87,14 @@ const ReviewReservation = () => {
               placeHolder="Add a review.."
               onChange={(e) => setReview(e.target.value)}
             />
-            <input
-              className="numberOfStarsInputBox"
-              placeHolder="Rating from 1-5"
-              onChange={(e) => setNumberOfStars(e.target.value)}
+            <Rating
+              name="hover-feedback"
+              value={numberOfStars}
+              precision={1}
+              onChange={(event, newValue) => {
+                setNumberOfStars(newValue);
+              }}
+              required
             />
             <button type="Submit" className="submitButton">
               {" "}

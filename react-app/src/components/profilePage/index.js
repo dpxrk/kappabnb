@@ -11,6 +11,8 @@ const ProfilePage = () => {
     (state) => state.reservation.listOfReservations
   );
 
+  const sessionUser = useSelector((state) => state?.session?.user);
+
   const handleReservationClick = (e, id) => {
     e.preventDefault();
     history.push(`/explore/${id}`);
@@ -47,48 +49,54 @@ const ProfilePage = () => {
             reservations.map((reservation) => {
               const startDate = new Date(reservation.startDate);
               const endDate = new Date(reservation.endDate);
-              return (
-                <div className="reservationCardContainer">
-                  <img
-                    src={reservation.picture}
-                    alt="reservationPhoto"
-                    className="picture"
-                    onClick={(e) =>
-                      handleReservationClick(e, reservation.bookingId)
-                    }
-                  ></img>
+              if (reservation?.userId === sessionUser?.id) {
+                return (
+                  <div className="reservationCardContainer">
+                    <img
+                      src={reservation.picture}
+                      alt="reservationPhoto"
+                      className="picture"
+                      onClick={(e) =>
+                        handleReservationClick(e, reservation.bookingId)
+                      }
+                    ></img>
 
-                  <div className="reservationDate">
-                    {startDate.toLocaleDateString({}, { dateStyle: "short" })} -{" "}
-                    {endDate.toLocaleDateString({}, { dateStyle: "short" })}
+                    <div className="reservationDate">
+                      {startDate.toLocaleDateString({}, { dateStyle: "short" })}{" "}
+                      - {endDate.toLocaleDateString({}, { dateStyle: "short" })}
+                    </div>
+                    <div className="reservationState">{reservation.state} </div>
+                    <div className="reservationTitle">
+                      {reservation.title}{" "}
+                      {today <= startDate && (
+                        <div className="cancelButton">
+                          <button
+                            className="actualButton"
+                            onClick={(e) =>
+                              handleCancelButton(e, reservation.id)
+                            }
+                          >
+                            {" "}
+                            Cancel Reservation{" "}
+                          </button>
+                        </div>
+                      )}{" "}
+                      {today >= endDate && (
+                        <div className="reviewButton">
+                          <button
+                            className="actualButton"
+                            onClick={(e) =>
+                              handleReviewButton(e, reservation.id)
+                            }
+                          >
+                            Review the reservation
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <div className="reservationState">{reservation.state} </div>
-                  <div className="reservationTitle">
-                    {reservation.title}{" "}
-                    {today <= startDate && (
-                      <div className="cancelButton">
-                        <button
-                          className="actualButton"
-                          onClick={(e) => handleCancelButton(e, reservation.id)}
-                        >
-                          {" "}
-                          Cancel Reservation{" "}
-                        </button>
-                      </div>
-                    )}{" "}
-                    {today >= endDate && (
-                      <div className="reviewButton">
-                        <button
-                          className="actualButton"
-                          onClick={(e) => handleReviewButton(e, reservation.id)}
-                        >
-                          Review the reservation
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
+                );
+              }
             })}
         </div>
       </div>
