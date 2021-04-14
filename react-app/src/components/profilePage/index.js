@@ -13,9 +13,6 @@ const ProfilePage = () => {
 
   const sessionUser = useSelector((state) => state?.session?.user);
 
-  console.log("THIS IS SESSIONUSER", sessionUser);
-  console.log("THIS IS THE RESERVATIONS", reservations);
-
   const handleReservationClick = (e, id) => {
     e.preventDefault();
     history.push(`/explore/${id}`);
@@ -52,7 +49,7 @@ const ProfilePage = () => {
             reservations.map((reservation) => {
               const startDate = new Date(reservation.startDate);
               const endDate = new Date(reservation.endDate);
-              if (reservation?.id === sessionUser?.id) {
+              if (reservation?.userId === sessionUser?.id) {
                 return (
                   <div className="reservationCardContainer">
                     <img
