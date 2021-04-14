@@ -40,5 +40,6 @@ class Reservation(db.Model):
       'title': title,
       'state': state,
       'picture' : picture,
-      'bookingId': self.bookingId
+      'bookingId': self.bookingId,
+      'userId': self.userId
     }
