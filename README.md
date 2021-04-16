@@ -35,7 +35,7 @@ This application is built upon Flask-SQLAlchemy and Postgres on the backend, whi
 ---------------------------------------------------------------------------------
 ```
 # Clone this repository
-$ git clone https://github.com/KevKodes/InstaLock.git
+$ git clone https://github.com/dpxrk/kappabnb.git
 
 # Install flask dependencies in root directory
 $ pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
