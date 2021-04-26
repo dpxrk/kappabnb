@@ -49,7 +49,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 60%;
+  height: 80%;
 }
 
 .theBottomFormContainer {
@@ -93,6 +93,7 @@ input {
 }
 
 .reviewContent1 {
+  margin-top: 25px;
   width: 475px;
   height: 250px;
   border-radius: 10px;
