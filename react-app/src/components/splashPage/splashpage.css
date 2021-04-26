@@ -5,6 +5,8 @@ body {
 .entireBackGround {
   animation-name: fadein;
   animation-duration: 1s;
+  -moz-animation: fadein 1s;
+  -webkit-animation: fadein 1s;
 }
 @keyframes fadein {
   from {
