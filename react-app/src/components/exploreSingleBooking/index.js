@@ -150,7 +150,7 @@ const ExploreSingleBooking = () => {
             <h3>
               {" "}
               Check out some reviews which have an average of:{" "}
-              <i class="far fa-star" /> {booking.averageReview}
+              {booking.averageReview} ✮
             </h3>
             {booking?.reviews?.map((review) => (
               <div className="reviewContent" key={review.id}>
@@ -160,8 +160,7 @@ const ExploreSingleBooking = () => {
                   {review.userName}{" "}
                 </div>
                 <div className="reviewContent">
-                  {review.content} <i class="far fa-star" />
-                  {review.numberOfStars}{" "}
+                  {review.content} {review.numberOfStars} ✮{" "}
                 </div>
 
                 <form

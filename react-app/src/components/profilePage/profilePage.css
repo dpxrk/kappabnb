@@ -4,6 +4,9 @@
   height: 100vh;
   animation-name: fadein;
   animation-duration: 1s;
+  -moz-animation: fadein 1s;
+  -webkit-animation: fadein 1s;
+
 }
 
 @keyframes fadein {

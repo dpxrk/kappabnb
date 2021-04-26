@@ -12,7 +12,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
     <nav className="navBarContainer">
       <ul className="topNavBarLinks">
         <div className="homeLogo">
-          <i class="fab fa-airbnb" /> <span> KappaBnB</span>
+          <span> KappaBnB</span>
         </div>
 
         <li>
