@@ -28,11 +28,6 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     setAuthenticated(true);
   };
 
-  // const handleHostClick = async (e) => {
-  //   const hostUser = await login("host@aa.io", "password");
-  //   dispatch(setUser(hostUser));
-  //   setAuthenticated(true);
-  // };
 
   if (authenticated) {
     return <Redirect to="/" />;

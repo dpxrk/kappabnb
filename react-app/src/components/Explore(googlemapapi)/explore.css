@@ -6,6 +6,33 @@ body {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+
+  animation-name: fadein;
+  animation-duration: 1s;
+}
+@keyframes fadein {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@-moz-keyframes fadein {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
 }
 
 .map {
