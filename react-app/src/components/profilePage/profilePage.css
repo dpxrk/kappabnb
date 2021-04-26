@@ -63,7 +63,7 @@
 
 .picture {
   height: 220px;
-  width: 500px;
+  width: 400px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   margin-bottom: -5px;
@@ -81,7 +81,7 @@
 
 .reservationCardContainer {
   border-radius: 10px;
-  width: 500px;
+  width: 400px;
   margin: 15px;
   font-family: "Nunito Sans";
 }
@@ -101,7 +101,7 @@
   border-bottom-right-radius: 10px;
   border-right: 1px solid white;
   font-family: "Nunito Sans";
-  font-size: 22px;
+  font-size: 18px;
   padding-left: 10px;
 }
 
