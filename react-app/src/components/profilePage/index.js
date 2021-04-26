@@ -10,7 +10,6 @@ const ProfilePage = () => {
   const reservations = useSelector(
     (state) => state.reservation.listOfReservations
   );
-
   const sessionUser = useSelector((state) => state?.session?.user);
 
   const handleReservationClick = (e, id) => {
@@ -60,7 +59,6 @@ const ProfilePage = () => {
                         handleReservationClick(e, reservation.bookingId)
                       }
                     ></img>
-
                     <div className="reservationDate">
                       {startDate.toLocaleDateString({}, { dateStyle: "short" })}{" "}
                       - {endDate.toLocaleDateString({}, { dateStyle: "short" })}
