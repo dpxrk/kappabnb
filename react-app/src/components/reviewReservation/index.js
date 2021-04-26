@@ -15,8 +15,6 @@ const ReviewReservation = () => {
   const [booking, setBooking] = useState({});
   const sessionUser = useSelector((state) => state?.session?.user);
 
-  
-
   useEffect(() => {
     const data = async () => {
       const singleBooking = await getSingleBooking(id);
@@ -31,8 +29,14 @@ const ReviewReservation = () => {
 
     const bookingId = id;
     const userId = sessionUser.id;
-    dispatch(createSingleReview(userId, bookingId, numberOfStars, review));
-    history.go(0);
+    if (!review) {
+      alert("Please Insert a review!");
+    } else if (!numberOfStars) {
+      alert("Please Rate With Number of Stars!");
+    } else {
+      dispatch(createSingleReview(userId, bookingId, numberOfStars, review));
+      history.go(0);
+    }
   };
 
   const handleDeleteReview = (e, id) => {
@@ -56,8 +60,9 @@ const ReviewReservation = () => {
               <div className="reviewCard" key={review.id}>
                 <div className="reviewImageAndName1">
                   {" "}
-                  <i class="far fa-star" /> {review.numberOfStars}{" "}
+                  {review.numberOfStars}✮{" "}
                   <img src={review.photo} alt="" className="reviewImage1" />{" "}
+                  Written By: <br />
                   {review.userName}
                 </div>
                 <div className="existingReviewContent">
